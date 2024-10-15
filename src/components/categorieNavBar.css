@@ -1,60 +1,128 @@
-/* Styles par défaut (Desktop) */
+/* Container principal de la barre de navigation */
+.category-navigation-bar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #f5f5f5;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Container pour les onglets */
 .tabs-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-  }
-  
-  .product-button {
-    margin: 10px;
-    width: 150px;
-  }
-  
-  @media (max-width: 768px) {
-    /* Pour les petits écrans (Mobile) */
-    .tabs-container {
-      flex-direction: column;
-    }
-  
-    .MuiTabs-flexContainer {
-      flex-direction: column;
-    }
-  
-    .product-button {
-      width: 100%;
-      margin: 5px 0;
-    }
-  
-    .MuiTab-root {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  
-  /* Menu accordéon pour mobile */
-  .accordion {
-    display: none;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+/* Style des onglets */
+.MuiTab-root {
+  padding: 12px 16px;
+  font-size: 16px;
+  text-transform: none;
+  color: #333;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+}
+
+.MuiTab-root:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.MuiTabs-vertical {
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+}
+
+/* Icônes dans les onglets */
+.MuiTab-iconWrapper {
+  margin-right: 8px;
+  color: #666;
+}
+
+.MuiTab-root.Mui-selected .MuiTab-iconWrapper {
+  color: #1976d2; /* Couleur de l'icône pour l'onglet sélectionné */
+}
+
+/* Zone de contenu déroulant des sous-catégories */
+.accordion-container {
+  background-color: #fff;
+  padding: 10px;
+  min-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-container {
+  width: 100%;
+  background-color: #fff;
+}
+
+/* Items dans les sous-catégories */
+.dropdown-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Transition douce pour les items */
+.MuiListItemText-root {
+  transition: color 0.3s ease;
+}
+
+.MuiListItem-root:hover .MuiListItemText-root {
+  color: #1976d2; /* Couleur lors du survol */
+}
+
+/* Responsive design */
+
+/* Pour les écrans de tablettes et plus petits */
+@media (max-width: 768px) {
+  .category-navigation-bar {
     flex-direction: column;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-  }
-  
-  .accordion.active {
-    display: flex;
-  }
-  
-  .accordion-button {
-    background-color: #fff;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
     width: 100%;
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
   }
-  
-  .accordion-button:hover {
-    background-color: #f0f0f0;
+
+  .tabs-container {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
   }
-  
+
+  .MuiTab-root {
+    flex-direction: row;
+    justify-content: center;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .accordion-container {
+    min-width: 100%; /* Prend toute la largeur sur mobile */
+  }
+}
+
+/* Pour les très petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+  .MuiTab-root {
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .dropdown-item {
+    font-size: 12px; /* Réduire la taille du texte sur mobile */
+  }
+}

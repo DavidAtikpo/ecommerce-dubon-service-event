@@ -10,6 +10,7 @@ import BeforeFooter from '../components/BeforeFooter';
 import TopBanner from '../components/TopBanner';
 import PromoBanner from '../components/PromoBanner';
 import PromoPopup from '../components/PromoPopup';
+import './Home.css'
 // import Cookies from 'js-cookie'
 import CookieConsent from '../components/CookieConsent';
 // import '../../styles/pages/userDashboardLayout.css'; // Ajoutez un fichier CSS pour la mise en page du dashboard.
@@ -18,7 +19,7 @@ const UserDashboardLayout = ({ children }) => {
   return (
     <div className="dashboard">
       {/* Top Bar */}
-      <TopBanner />
+      {/* <TopBanner /> */}
       <TopBar/>
       <CategoryNavigationBar />
 

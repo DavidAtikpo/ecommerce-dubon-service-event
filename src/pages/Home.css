@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Utilisez min-height au lieu de height */
+}
+
+/* .dashboard-content {
+    flex: 1; 
+    overflow-y: auto; 
+} */
+
+.dashboard-content {
+    min-height: calc(100vh - 100px); /* Ajustez ce chiffre selon la taille de votre en-tête ou pied de page */
+}
+
+
+.main-content {
+    padding: 20px; /* Ajoutez du padding si nécessaire */
+}

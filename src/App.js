@@ -30,6 +30,11 @@ import PasswordUpdateComponent from './components/MonCompte/PasseWord';
 import PhoneUpdateComponent from './components/MonCompte/PhoneVerificationComponent';
 import LanguageSelector from './components/topbar/LanguageSelector';
 import Stats from './components/Stats';
+import AdminPage from '../pages/admin/AdminPage';
+import AddProductPage from '../components/AddProductPage';
+import AdminAuth from '../pages/admin/AdminAuth'
+import AdminSideBar from '../pages/admin/adminSideBar'
+
 
 // import MessagePage from './components/MessageComponent/MessagePage';
 
@@ -61,7 +66,10 @@ function App() {
         <Route path='/language' element = {<LanguageSelector/> }/>
         <Route path='/stats' element ={<Stats/>}/>
 
-
+                    <Route path='/addProduct' element={<AddProductPage/>}/>
+                    <Route path='/adminDash' element={<AdminPage/>}/>
+                    <Route path='/admin/login' element ={<AdminAuth/>}/>
+                    <Route path='/admin/side-bar' element ={<AdminSideBar/>}/>
 
 
          

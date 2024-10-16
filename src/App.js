@@ -30,10 +30,10 @@ import PasswordUpdateComponent from './components/MonCompte/PasseWord';
 import PhoneUpdateComponent from './components/MonCompte/PhoneVerificationComponent';
 import LanguageSelector from './components/topbar/LanguageSelector';
 import Stats from './components/Stats';
-import AdminPage from '../pages/admin/AdminPage';
-import AddProductPage from '../components/AddProductPage';
-import AdminAuth from '../pages/admin/AdminAuth'
-import AdminSideBar from '../pages/admin/adminSideBar'
+import AdminPage from './pages/admin/AdminPage';
+import AddProductPage from './components/AddProductPage';
+import AdminAuth from './pages/admin/AdminAuth'
+import AdminSideBar from './pages/admin/adminSideBar'
 
 
 // import MessagePage from './components/MessageComponent/MessagePage';

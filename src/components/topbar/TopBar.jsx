@@ -441,6 +441,7 @@ import logo from '../../assets/favicon.png';
 import profile from '../../assets/images/user-profile-svgrepo-com (1).svg';
 import { FaBars, FaShoppingCart, FaSearch } from 'react-icons/fa';
 import { MdLanguage } from 'react-icons/md';
+// import zIndex from '@mui/material/styles/zIndex';
 
 const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -559,11 +560,14 @@ const NavBar = () => {
 const styles = {
   navbar: {
     display: 'flex',
+    position:"fixed",
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#FFC107',
+    backgroundColor: '#fff',
     border:"1px 1px 2px solid #0808cd",
     padding: '10px',
+    position: 'sticky',
+    zIndex:'10',
     flexWrap: 'wrap', // Allow elements to wrap on mobile
   },
   section1:{

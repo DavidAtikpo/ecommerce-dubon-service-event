@@ -1,61 +1,77 @@
 import React, { useState } from 'react';
+import { Box, TextField, Button, Typography, Alert } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const AuthForm = () => {
-  const [email, setEmail] = useState('');
+const AdminLoginPage = () => {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [twoFactorToken, setTwoFactorToken] = useState('');
-
-  const handleRegister = async () => {
-    try {
-      await axios.post('/api/auth/register', { email, password });
-      alert('User registered successfully');
-    } catch (error) {
-      alert(error.response.data.error);
-    }
-  };
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const { data } = await axios.post('/api/auth/login', { email, password });
-      localStorage.setItem('token', data.token);
-
-      // Demander le 2FA après la connexion réussie
-      const res = await axios.post('/api/auth/generate-2fa', {}, {
-        headers: { Authorization: `Bearer ${data.token}` },
-      });
-      console.log(res.data.qrCode); // Afficher le QR code pour configurer 2FA
-    } catch (error) {
-      alert(error.response.data.error);
-    }
-  };
-
-  const handle2FAVerify = async () => {
-    try {
-      await axios.post('/api/auth/verify-2fa', { token: twoFactorToken });
-      alert('2FA verified successfully');
-    } catch (error) {
-      alert(error.response.data.error);
+      const response = await axios.post('/api/auth/login', { username, password });
+      const { token } = response.data;
+      localStorage.setItem('authToken', token);
+      navigate('/admin/dashboard');
+    } catch (err) {
+      setError('Nom d’utilisateur ou mot de passe incorrect');
     }
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-      <button onClick={handleRegister}>Register</button>
-
-      <h2>Login</h2>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-      <button onClick={handleLogin}>Login</button>
-
-      <h2>Verify 2FA</h2>
-      <input type="text" value={twoFactorToken} onChange={(e) => setTwoFactorToken(e.target.value)} placeholder="2FA Token" />
-      <button onClick={handle2FAVerify}>Verify 2FA</button>
-    </div>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        backgroundColor: '#f0f0f0',
+      }}
+    >
+      <Box
+        sx={{
+          width: 400,
+          padding: 4,
+          backgroundColor: '#fff',
+          borderRadius: '8px',
+          boxShadow: 3,
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
+          Admin Login
+        </Typography>
+        {error && <Alert severity="error" sx={{ marginBottom: 2 }}>{error}</Alert>}
+        <TextField
+          label="Nom d'utilisateur"
+          variant="outlined"
+          fullWidth
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          sx={{ marginBottom: 2 }}
+        />
+        <TextField
+          label="Mot de passe"
+          type="password"
+          variant="outlined"
+          fullWidth
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          sx={{ marginBottom: 3 }}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={handleLogin}
+        >
+          Connexion
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
-export default AuthForm;
+export default AdminLoginPage;

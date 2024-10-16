@@ -1,9 +1,14 @@
 .sidebar {
+  position: fixed; /* Rendre la sidebar fixe sur le côté gauche */
+  top: 64px; /* Ajuster cette valeur en fonction de la hauteur de la barre de navigation ou du header */
+  left: 0;
   width: 250px;
-  background-color: #0808cd; /* Couleur bleue */
+  background-color: #0808cd; 
   color: white;
   padding: 20px;
-  height: 100vh; /* Pour occuper toute la hauteur */
+  height: calc(100vh - 64px); /* Ajuster la hauteur en fonction du header */
+  overflow-y: auto; /* Permettre le défilement de la sidebar si elle devient trop longue */
+  z-index: 1000; /* Assurer que la sidebar soit toujours au-dessus du contenu principal */
 }
 
 .sidebar ul {

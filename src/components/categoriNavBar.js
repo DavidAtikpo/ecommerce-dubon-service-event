@@ -334,7 +334,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Tabs, Tab, List, ListItem, ListItemText } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import './categorieNavBar.css'
+import './categorieNavBar.css'
 import { API_URL } from '../config';
 
 // Importation des icônes de Material UI
@@ -384,7 +384,7 @@ const CategoryNavigationBar = () => {
     setHovering(false);
     setTimeout(() => {
       if (!hovering) setOpenCategory(null); // Fermer l'accordéon si le curseur est sorti
-    }, 10); // Délais de fermeture pour une meilleure expérience utilisateur
+    }, 1); // Délais de fermeture pour une meilleure expérience utilisateur
   };
 
   const handleSubcategoryClick = (subcategory) => {
@@ -406,7 +406,7 @@ const CategoryNavigationBar = () => {
         orientation="vertical"
         value={selectedTab}
         onChange={handleTabChange}
-        sx={{ borderRight:1, borderColor: 'divider', width: '200px', backgroundColor: '#f5f5f5' }}
+        sx={{ borderRight:1,height:'450px',marginLeft:'20px',marginTop:'-440px', fontSize:"1px", borderColor: 'divider', width: '200px', backgroundColor: '#f5f5f5' }}
       >
         {/* Onglets fixes avec icônes */}
         {fixedTabs.map((tab, index) => (
@@ -431,7 +431,7 @@ const CategoryNavigationBar = () => {
       {/* Sous-catégories et titres affichés en fonction de l'onglet sélectionné */}
       {openCategory && (
         <Box
-          sx={{ marginLeft: '10px', backgroundColor: '#ffffff', border: '1px solid #ddd', padding: '10px', minWidth: '300px' }}
+          sx={{ marginLeft: '5px',marginTop:'-440px', backgroundColor: '#ffffff', border: '1px solid #ddd', padding: '10px', minWidth: '300px' }}
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={handleMouseLeave}
         >

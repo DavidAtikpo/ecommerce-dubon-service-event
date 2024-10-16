@@ -491,8 +491,8 @@ const NavBar = () => {
         </div>
       ) : (
         <div style={styles.adminSection}>
-          <span role="img" aria-label="signup" style={styles.signupEmoji}>
-            👋 Inscription
+          <span onClick={()=> navigate('/register')} role="img" aria-label="signup" style={styles.signupEmoji}>
+             Inscription
           </span>
         </div>
       )}

@@ -10,6 +10,8 @@ import BeforeFooter from '../components/BeforeFooter';
 import TopBanner from '../components/TopBanner';
 import PromoBanner from '../components/PromoBanner';
 import PromoPopup from '../components/PromoPopup';
+import DubonServiceEvent from '../components/dubonservice';
+import SalesPage from '../components/SallePage';
 import './Home.css'
 // import Cookies from 'js-cookie'
 import CookieConsent from '../components/CookieConsent';
@@ -21,23 +23,27 @@ const UserDashboardLayout = ({ children }) => {
       {/* Top Bar */}
       {/* <TopBanner /> */}
       <TopBar/>
-      <CategoryNavigationBar />
-
+    
+      {/* <CategoryNavigationBar /> */}
+      <SalesPage/>
       <PromoBanner />
       <PromoPopup />
       {/* Structure du dashboard */}
       <div className="dashboard-content">
         {/* Contenu principal */}
         <NewProducts />
-        <main className="main-content">
           <Product />
           {children}
           <CookieConsent/>
           {/* Ici, les pages spécifiques au tableau de bord seront rendues */}
-        </main>
+        </div>
+
+        <main className="content">
+          <DubonServiceEvent/>
         <BeforeFooter />
         <Footer />
-      </div>
+        </main>
+      
     </div>
   );
 };

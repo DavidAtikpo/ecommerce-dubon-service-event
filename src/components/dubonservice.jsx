@@ -2,7 +2,8 @@ import React from 'react';
 
 const DubonServiceEvent = () => {
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{  margin:'5px', padding: '20px' }}>
+      <div style={{ padding: '20px', backgroundColor:'#ffff' }}>
       <h1>Bienvenue sur DUBON Service Event</h1>
       <p>
         DUBON Service Event est votre plateforme idéale pour acheter des produits frais et congelés, profiter d'événements
@@ -57,6 +58,7 @@ const DubonServiceEvent = () => {
           de paiement mobile.
         </p>
       </section>
+      </div>
     </div>
   );
 };

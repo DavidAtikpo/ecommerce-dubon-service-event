@@ -1,6 +1,6 @@
 /* Style par défaut pour la NavBar */
 .navbar {
-  background-color: #0d0db7; /* Couleur de fond de la NavBar */
+  background-color: #dedede; /* Couleur de fond de la NavBar */
   padding: 1rem;
   position: sticky; /* Garde la barre en haut */
   top: 0;
@@ -19,7 +19,7 @@
 
 /* Élément de la NavBar */
 .navbar-item {
-  color: #fff; /* Couleur du texte */
+  color:blue; /* Couleur du texte */
   text-decoration: none;
   cursor: pointer;
   padding: 0.5rem 1rem;

@@ -3,7 +3,6 @@ import { Box, CssBaseline, Toolbar, Grid } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import TopBar from '../topbar/TopBar';
-import BeforeFooter from '../BeforeFooter';
 import Footer from '../Footer';
 import MessageNavBar from './MessageSideBar'; // Import de la nouvelle NavBar
 import AccueilComponent from './AccueilComponent';
@@ -52,7 +51,6 @@ const MessagePage = () => {
       </Box>
 
       {/* Footer */}
-      <BeforeFooter />
       <Footer />
     </div>
   );

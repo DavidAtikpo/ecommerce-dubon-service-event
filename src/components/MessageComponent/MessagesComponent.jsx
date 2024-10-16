@@ -1,51 +1,59 @@
-import React, { useState } from 'react';
 
-const MessagesComponent = () => {
-  const [messages, setMessages] = useState([
-    { id: 1, from: 'admin', text: 'Bienvenue dans le service de messagerie.' },
-  ]); // Liste des messages initiaux
-  const [messageText, setMessageText] = useState(''); // Contenu du message que l'utilisateur veut envoyer
+import React, { useEffect, useState } from 'react';
+import { Box, Typography, List, ListItem, ListItemText, Paper, TextField, Button } from '@mui/material';
+import axios from 'axios';
 
-  // Fonction pour envoyer un message
-  const sendMessage = () => {
-    if (messageText.trim() !== '') {
-      const newMessage = {
-        id: messages.length + 1,
-        from: 'user',
-        text: messageText,
-      };
-      setMessages([...messages, newMessage]); // Ajouter le nouveau message
-      setMessageText(''); // Réinitialiser le champ
+const MessageComponent = () => {
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await axios.get('/api/messages');
+        setMessages(response.data);
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+      }
+    };
+    fetchMessages();
+  }, []);
+
+  const handleSendMessage = async () => {
+    try {
+      const response = await axios.post('/api/messages', { content: newMessage });
+      setMessages([...messages, response.data]);
+      setNewMessage('');
+    } catch (error) {
+      console.error('Error sending message:', error);
     }
   };
 
   return (
-    <div className="messages-component">
-      <h2>Communiquez avec l'administration ou le service client</h2>
-
-      {/* Affichage des messages */}
-      <div className="message-list">
-        {messages.map((msg) => (
-          <div
-            key={msg.id}
-            className={msg.from === 'admin' ? 'admin-message' : 'user-message'}
-          >
-            <strong>{msg.from === 'admin' ? 'Administration' : 'Vous'} :</strong> {msg.text}
-          </div>
-        ))}
-      </div>
-
-      {/* Formulaire d'envoi de message */}
-      <div className="message-input">
-        <textarea
-          value={messageText}
-          onChange={(e) => setMessageText(e.target.value)}
-          placeholder="Écrivez votre message ici..."
-        />
-        <button onClick={sendMessage}>Envoyer</button>
-      </div>
-    </div>
+    <Box sx={{ padding: 3 }}>
+      <Typography variant="h5" gutterBottom>Messagerie Client</Typography>
+      <Paper sx={{ padding: 2, marginBottom: 3 }}>
+        <List>
+          {messages.map((message) => (
+            <ListItem key={message.id}>
+              <ListItemText primary={message.title} secondary={message.content} />
+            </ListItem>
+          ))}
+        </List>
+      </Paper>
+      <TextField
+        label="Écrivez un message"
+        multiline
+        rows={4}
+        variant="outlined"
+        fullWidth
+        value={newMessage}
+        onChange={(e) => setNewMessage(e.target.value)}
+        sx={{ marginBottom: 2 }}
+      />
+      <Button variant="contained" color="primary" onClick={handleSendMessage}>Envoyer</Button>
+    </Box>
   );
 };
 
-export default MessagesComponent;
+export default MessageComponent;

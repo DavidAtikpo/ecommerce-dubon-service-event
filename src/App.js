@@ -67,7 +67,7 @@ function App() {
         <Route path='/stats' element ={<Stats/>}/>
 
                     <Route path='/addProduct' element={<AddProductPage/>}/>
-                    <Route path='/adminDash' element={<AdminPage/>}/>
+                    <Route path='/admindash' element={<AdminPage/>}/>
                     <Route path='/adminlogin' element ={<AdminAuth/>}/>
                     <Route path='/admin/side-bar' element ={<AdminSideBar/>}/>
 

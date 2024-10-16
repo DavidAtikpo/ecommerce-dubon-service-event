@@ -36,7 +36,7 @@ const navigate = useNavigate()
           <div className="user-stats">
             <div className="stat-item">
               <h4>{userData.demandes}</h4>
-              <p>Demandes de cartes de visite</p>
+              <p>Demandes </p>
             </div>
             <div className="stat-item">
               <h4>{userData.favoris}</h4>
@@ -66,7 +66,7 @@ const navigate = useNavigate()
       <div className="orders-section">
         <h3>Mes Commandes</h3>
         <p>Pas encore de commandes...</p>
-        <button onClick={()=>navigate('/')}>Achetez maintenant</button>
+        <button onClick={()=>navigate('/')}>Faire des commandes</button>
       </div>
     </div>
   );

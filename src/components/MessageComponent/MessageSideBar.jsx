@@ -1,82 +1,50 @@
-// import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHome, faEnvelope, faShoppingCart, faClipboardList, faExchangeAlt, faList, faCog,faSearchDollar } from '@fortawesome/free-solid-svg-icons';
-// // import './MessageSideBar.css';
-
-
-// const MessageSideBar = ({ onMenuClick }) => {
-//   return (
-   
-    
-//     <div className="sidebar">
-//       <ul>
-//         <li onClick={() => onMenuClick('accueil')}>
-//           <FontAwesomeIcon icon={faHome} /> Accueil
-//         </li>
-//         <li onClick={() => onMenuClick('messages')}>
-//           <FontAwesomeIcon icon={faEnvelope} /> Messages
-//         </li>
-//         <li onClick={() => onMenuClick('achat-prospects')}>
-//           <FontAwesomeIcon icon={faShoppingCart} /> Achat de prospects
-//         </li>
-//         <li onClick={() => onMenuClick('commandes')}>
-//           <FontAwesomeIcon icon={faClipboardList} /> Commandes
-//         </li>
-//         <li onClick={() => onMenuClick('transactions')}>
-//           <FontAwesomeIcon icon={faExchangeAlt} /> Transactions
-//         </li>
-//         <li onClick={() => onMenuClick('contacts')}>
-//           <FontAwesomeIcon icon={faSearchDollar} /> Devenz vendeur
-//         </li>
-//         <li onClick={() => onMenuClick('listes')}>
-//           <FontAwesomeIcon icon={faList} /> Mes Listes
-//         </li>
-//         <li onClick={() => onMenuClick('services')}>
-//           <FontAwesomeIcon icon={faCog} /> Services
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default MessageSideBar;
-
-
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faEnvelope, faShoppingCart, faClipboardList, faExchangeAlt, faList, faCog, faSearchDollar } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faEnvelope, faShoppingCart, faClipboardList, faExchangeAlt, faList, faCog, faSearchDollar, faBars } from '@fortawesome/free-solid-svg-icons';
+import './MessageSideBar.css';
+import { useNavigate } from 'react-router-dom';
 
-const MessageSideBar = ({ onMenuClick }) => {
+const MessageNavBar = ({ onMenuClick }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate(); // Utilisation de useNavigate
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="sidebar">
-      <ul>
-        <li onClick={() => onMenuClick('accueil')}>
+    <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
+      <div className="hamburger" onClick={toggleMenu}>
+        <FontAwesomeIcon icon={faBars} />
+      </div>
+      <ul className="navbar-list">
+        <li className="navbar-item" onClick={() => { navigate('/'); setMenuOpen(false); }}>
           <FontAwesomeIcon icon={faHome} /> Accueil
         </li>
-        <li onClick={() => onMenuClick('messages')}>
+        <li className="navbar-item" onClick={() => { onMenuClick('messages'); setMenuOpen(false); }}>
           <FontAwesomeIcon icon={faEnvelope} /> Messages
         </li>
-        <li onClick={() => onMenuClick('achat-prospects')}>
-          <FontAwesomeIcon icon={faShoppingCart} /> Achat de prospects
+        <li className="navbar-item" onClick={() => { onMenuClick('achat-prospects'); setMenuOpen(false); }}>
+          <FontAwesomeIcon icon={faShoppingCart} /> Achat 
         </li>
-        <li onClick={() => onMenuClick('commandes')}>
+        <li className="navbar-item" onClick={() => { onMenuClick('commandes'); setMenuOpen(false); }}>
           <FontAwesomeIcon icon={faClipboardList} /> Commandes
         </li>
-        <li onClick={() => onMenuClick('transactions')}>
+        <li className="navbar-item" onClick={() => { onMenuClick('transactions'); setMenuOpen(false); }}>
           <FontAwesomeIcon icon={faExchangeAlt} /> Transactions
         </li>
-        <li onClick={() => onMenuClick('contacts')}>
+        <li className="navbar-item" onClick={() => { onMenuClick('contacts'); setMenuOpen(false); }}>
           <FontAwesomeIcon icon={faSearchDollar} /> Devenez vendeur
         </li>
-        <li onClick={() => onMenuClick('listes')}>
+        <li className="navbar-item" onClick={() => { onMenuClick('listes'); setMenuOpen(false); }}>
           <FontAwesomeIcon icon={faList} /> Mes Listes
         </li>
-        <li onClick={() => onMenuClick('services')}>
+        <li className="navbar-item" onClick={() => { onMenuClick('services'); setMenuOpen(false); }}>
           <FontAwesomeIcon icon={faCog} /> Services
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 
-export default MessageSideBar;
+export default MessageNavBar;

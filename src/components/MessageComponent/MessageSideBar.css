@@ -1,51 +1,74 @@
-.sidebar {
-  position: fixed; /* Rendre la sidebar fixe sur le côté gauche */
-  top: 64px; /* Ajuster cette valeur en fonction de la hauteur de la barre de navigation ou du header */
-  left: 0;
-  width: 250px;
-  background-color: #0808cd; 
-  color: white;
-  padding: 20px;
-  height: calc(100vh - 64px); /* Ajuster la hauteur en fonction du header */
-  overflow-y: auto; /* Permettre le défilement de la sidebar si elle devient trop longue */
-  z-index: 1000; /* Assurer que la sidebar soit toujours au-dessus du contenu principal */
+/* Style par défaut pour la NavBar */
+.navbar {
+  background-color: #0d0db7; /* Couleur de fond de la NavBar */
+  padding: 1rem;
+  position: sticky; /* Garde la barre en haut */
+  top: 0;
+  z-index: 10; /* S'assure que la NavBar est au-dessus du contenu */
 }
 
-.sidebar ul {
+/* Liste des éléments de la NavBar */
+.navbar-list {
+  display: flex;
   list-style: none;
+  margin: 0;
   padding: 0;
+  font-size: 10px;
+  justify-content: space-around; /* Répartit les éléments sur toute la largeur */
 }
 
-.sidebar ul li {
-  margin-bottom: 15px;
+/* Élément de la NavBar */
+.navbar-item {
+  color: #fff; /* Couleur du texte */
+  text-decoration: none;
   cursor: pointer;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
+  font-size: 1.1rem;
 }
 
-.sidebar ul li:hover {
-  background-color: #0056b3;
-  padding-left: 10px;
-  transition: padding-left 0.3s ease-in-out;
+.navbar-item:hover {
+  background-color: #f88b0e; /* Couleur au survol */
+  border-radius: 4px; /* Coins arrondis */
 }
 
-.sidebar ul li .fa-icon {
-  margin-right: 10px;
+.navbar-item svg {
+  margin-right: 0.5rem; /* Espace entre l'icône et le texte */
 }
 
+/* Style pour l'icône hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Media query pour les écrans plus petits */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
+  .navbar-list {
+    display: none; /* Cache la liste par défaut */
+    flex-direction: column;
+    background-color: #f3f3f8;
+    position: absolute;
+    top: 64px; /* Ajuster pour qu'il apparaisse juste en dessous de la NavBar */
+    left: 0;
+    width: 30%;
+    padding: 1rem;
   }
 
-  .sidebar ul {
-    display: flex;
-    justify-content: space-around;
+  .navbar.open .navbar-list {
+    display: flex; /* Affiche la liste lorsqu'elle est ouverte */
   }
 
-  .sidebar ul li {
-    margin-bottom: 0;
+  .hamburger {
+    display: block; /* Affiche l'icône hamburger */
+  }
+
+  .navbar-item {
+    color: black;
+    padding: 1rem;
+    text-align: center;
   }
 }

@@ -138,7 +138,7 @@ const SalesPage = () => {
     alt="Publicité Offres Exclusives"
     style={{ width: '100%', borderRadius: '8px', marginBottom: '8px' }}
   />
-  <Button variant="contained" color="secondary">En savoir plus</Button>
+  <Button variant="contained" color="primary">En savoir plus</Button>
 </Box>
           </Box>
         </Grid>

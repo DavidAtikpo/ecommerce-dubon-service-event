@@ -83,7 +83,7 @@ function App() {
           {/* <Route path="/addproduct" element={<AddProductPage />} /> */}
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginPage />} />
-          {/* <Route path="/adminDash" element={<AdminPage />} /> */}
+          <Route path="/adminDash" element={<AdminPage />} />
           <Route path="/message-page" element={<MessagePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />

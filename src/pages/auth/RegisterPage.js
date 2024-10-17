@@ -6,6 +6,7 @@ import 'react-phone-input-2/lib/style.css';
 import logo from '../../assets/logo.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 import axios from 'axios'; // Assurez-vous d'avoir installé axios: npm install axios
 
 const RegisterPage = () => {
@@ -23,7 +24,7 @@ const RegisterPage = () => {
     setErrorMessage('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/user/register', {
+      const response = await axios.post(`${ API_URL }/api/user/register`, {
         name,
         email,
         mobile,

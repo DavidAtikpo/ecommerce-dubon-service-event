@@ -327,13 +327,14 @@
 // };
 
 // export default NavBar;
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, MenuItem } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import logo from '../../assets/favicon.png';
 import profile from '../../assets/images/user-profile-svgrepo-com (1).svg';
-import { FaBars, FaShoppingCart, FaSearch } from 'react-icons/fa';
+import { FaBars, FaShoppingCart, FaSearch, FaBell } from 'react-icons/fa';
 import { MdLanguage } from 'react-icons/md';
 // import zIndex from '@mui/material/styles/zIndex';
 
@@ -372,52 +373,52 @@ const NavBar = () => {
   // };
 
   return (
-    <nav style={styles.navbar}>
+    <nav style={styles.navbars}>
       {/* Logo Section */}
       
-      <div style={styles.logoSection}>
-        <img src={logo} alt="logo" style={styles.logo} />
+      <div style={styles.logoSections}>
+        <img src={logo} alt="logo" style={styles.logos} />
       </div>
 
       {/* Admin/Username Section */}
       {isLoggedIn ? (
-        <div style={styles.adminSection}>
-          <span style={styles.adminLabel}>{'User'}</span>
+        <div style={styles.adminSections}>
+          <span style={styles.adminLabels}>{'User'}</span>
         </div>
       ) : (
-        <div style={styles.adminSection}>
-          <span onClick={()=> navigate('/register')} role="img" aria-label="signup" style={styles.signupEmoji}>
+        <div style={styles.adminSections}>
+          <span onClick={()=> navigate('/register')} role="img" aria-label="signup" style={styles.signupEmojis}>
              Inscription
           </span>
         </div>
       )}
       
       {/* Search Bar Section */}
-      <div style={styles.searchSection}>
-        <FaSearch style={styles.searchIcon} />
-        <input type="text" placeholder="Recherche des produits" style={styles.searchInput} />
+      <div style={styles.searchSections}>
+        <FaSearch style={styles.searchIcons} />
+        <input type="text" placeholder="Recherche des produits" style={styles.searchInputs} />
       </div>
 
       {/* Right Section (Language, Notifications, Cart, Profile) */}
-      <div style={styles.rightSection}>
+      <div style={styles.rightSections}>
         {/* Language Icon */}
-        <MdLanguage style={styles.icon} />
+        <FaBell style={styles.icons} />
         
         {/* Cart Icon with Item Count */}
-        <div onClick={() => navigate('/cart')} style={styles.cartSection}>
-          <FaShoppingCart style={styles.icon} />
+        <div onClick={() => navigate('/cart')} style={styles.cartSections}>
+          <FaShoppingCart style={styles.icons} />
           {cartItemsLength > 0 && (
-            <div style={styles.cartBadge}>{cartItemsLength}</div>
+            <div style={styles.cartBadges}>{cartItemsLength}</div>
           )}
         </div>
 
         {/* Profile Section */}
         {isLoggedIn ? (
-          <div onClick={() => navigate('/profilePhoto')} style={styles.profileSection}>
-            <img src={profile} alt="profile" style={styles.profileImage} />
+          <div onClick={() => navigate('/profilePhoto')} style={styles.profileSections}>
+            <img src={profile} alt="profile" style={styles.profileImages} />
           </div>
         ) : (
-          <div onClick={() => navigate('/login')} style={styles.buttonSection}>
+          <div onClick={() => navigate('/login')} style={styles.buttonSections}>
             connexion
           </div>
         )}
@@ -425,10 +426,10 @@ const NavBar = () => {
 
       {/* Hamburger Menu */}
       {isLoggedIn ? (
-        <FaBars style={styles.hamburgerMenu} onClick={handleProfileMenuOpen} />
+        <FaBars style={styles.hamburgerMenus} onClick={handleProfileMenuOpen} />
       ) : (
-        <div onClick={() => navigate('/login')} style={styles.hamburgerMenu}>
-          <AccountCircle style={styles.icon} />
+        <div onClick={() => navigate('/login')} style={styles.hamburgerMenus}>
+          <AccountCircle style={styles.icons} />
         </div>
       )}
 
@@ -452,83 +453,83 @@ const NavBar = () => {
 };
 
 const styles = {
-  navbar: {
+  navbars: {
     display: 'flex',
     position:"fixed",
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    backgroundColor: '#FFC107',
     border:"1px 1px 2px solid #0808cd",
     padding: '10px',
     position: 'sticky',
     zIndex:'10',
     flexWrap: 'wrap', // Allow elements to wrap on mobile
   },
-  section1:{
-    // display:'flex',
-    backgroundColor:'#fff'
-  },
-  logoSection: {
+
+  logoSections: {
     flex: 1,
   },
-  logo: {
+  logos: {
     height: '40px',
   },
-  adminSection: {
+  adminSections: {
     flex: 1,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     transition: 'all 0.3s ease', // Smooth transition on change
   },
-  adminLabel: {
+  adminLabels: {
     backgroundColor: '#0808cd',
     color: '#fff',
     padding: '5px 7px',
     borderRadius: '5px',
   },
-  signupEmoji: {
+  signupEmojis: {
     fontSize: '16px',
     cursor: 'pointer',
   },
-  searchSection: {
-    flex: 4,
+  searchSections: {
+    flex: 3, // Au lieu de 5
     display: 'flex',
     alignItems: 'center',
     backgroundColor: '#f1f1f1',
-    borderRadius: '5px',
-    padding: '5px',
-    margin: '0 50px',
-    transition: 'all 0.3s ease', // Smooth transition on change
+    borderRadius: '8px', // Optionnel: Réduire légèrement le rayon des coins
+    padding: '0.5px 10px', // Ajuster le padding vertical et horizontal
+    margin: '0 30px', // Réduire la marge
+    transition: 'all 0.3s ease',
   },
-  searchIcon: {
+  
+  
+  searchIcons: {
     marginRight: '10px',
     color:'#0808cd'
   },
-  searchInput: {
+  searchInputs: {
     border: 'none',
     backgroundColor: 'transparent',
     outline: 'none',
-    width: '100%',
+    width: '90%', // Réduire un peu l'espace occupé par l'input
   },
-  rightSection: {
+  
+  rightSections: {
     display: 'flex',
     justifyContent:'space-between',
     padding:'0 30px',
     alignItems: 'center',
     position: 'relative',
   },
-  icon: {
+  icons: {
     margin: '0 10px',
     cursor: 'pointer',
   },
-  cartSection: {
+  cartSections: {
     position: 'relative',
     cursor: 'pointer',
     padding:'0 20px',
     
   },
-  cartBadge: {
+  cartBadges: {
     position: 'absolute',
     top: '-5px',
     right: '15px',
@@ -538,66 +539,66 @@ const styles = {
     padding: '2px 6px',
     fontSize: '12px',
   },
-  profileSection: {
+  profileSections: {
     display: 'flex',
     alignItems: 'center',
     cursor: 'pointer',
   },
-  profileImage: {
+  profileImages: {
     borderRadius: '50%',
     width: '30px',
     height: '30px',
   },
-  buttonSection: {
+  buttonSections: {
     width: '80px',
     textAlign: 'center',
     padding: '5px 10px',
     cursor: 'pointer',
   },
-  hamburgerMenu: {
+  hamburgerMenus: {
     fontSize: '24px',
     cursor: 'pointer',
     color:'#0808cd'
   },
-  mobileMenuDropdown: {
+  mobileMenuDropdowns: {
     display: 'none',
   },
   // Mobile-specific styles
   '@media (max-width: 768px)': {
-    navbar: {
+    navbars: {
       flexDirection: 'column', // Stack the items in column for mobile
     },
-    searchSection: {
+    searchSections: {
       width: '100%',
       margin: '10px 0', // Move search bar below other elements
     },
-    rightSection: {
+    rightSections: {
       flex: 1,
       justifyContent: 'space-between',
       width: '100%',
     },
-    buttonSection: {
+    buttonSections: {
       width: 'auto',
       fontSize: '14px',
       padding: '5px',
     },
-    hamburgerMenu: {
+    hamburgerMenus: {
       display: 'block',
       marginBottom: '10px', // Separate the hamburger menu for better alignment
     },
-    profileSection: {
+    profileSections: {
       display: 'block',
       width: '100%',
       textAlign: 'center', // Center the profile section on mobile
       marginBottom: '10px',
     },
-    adminSection: {
+    adminSections: {
       display: 'block',
       width: '100%',
       textAlign: 'center',
       marginBottom: '10px',
     },
-    mobileMenuDropdown: {
+    mobileMenuDropdowns: {
       display: 'block', // Dropdown for mobile menu
       position: 'absolute',
       top: '50px',
@@ -610,3 +611,4 @@ const styles = {
   },
 };
 export default NavBar;
+

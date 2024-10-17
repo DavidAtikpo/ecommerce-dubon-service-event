@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Box, Grid, Typography, Button, List, ListItem, ListItemText, IconButton, Drawer } from '@mui/material';
 import { PhoneAndroid, ShoppingBasket, LocalOffer, Menu as MenuIcon } from '@mui/icons-material';
-
+import { useNavigate } from 'react-router-dom';
 const SalesPage = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const Navigate = useNavigate()
 
   const handleMouseOver = (category) => {
     setHoveredCategory(category);

@@ -36,16 +36,17 @@ import AdminAuth from './pages/admin/AdminAuth'
 import AdminSideBar from './pages/admin/adminSideBar'
 
 
+
 // import MessagePage from './components/MessageComponent/MessagePage';
-
-
+// import RestaurantManagement from './pages/admin/Restaurant/RestaurantManagement';
+// import EventDashboard from './pages/admin/Evenement/EventDashboard';
 import VendeurDashboard from './pages/vendeurs/vendeurDashboard';
 import AjouterProduit from './pages/vendeurs/AjouterProduit';
 import MesProduits from './pages/vendeurs/MesProduits';
 import MesCommandes from './pages/vendeurs/Mescommandes';
 import Checkout from './components/topbar/checkout';
 import ProfilePhotoComponent from './components/MonCompte/ProfilePhotoComponent';
-
+// import Dashboard from './pages/admin/dashboard/Dashboard'
 function App() {
   return (
     <Router>
@@ -65,6 +66,9 @@ function App() {
         <Route path='/profilePhoto' element = {<ProfilePhotoComponent/>}/>
         <Route path='/language' element = {<LanguageSelector/> }/>
         <Route path='/stats' element ={<Stats/>}/>
+        {/* <Route path='/admin' element ={<Dashboard/>}/> */}
+        {/* <Route path='/evenement' element ={<EventDashboard/>}/> */}
+        {/* <Route path='/restaurant' element ={<RestaurantManagement/>}/> */}
 
                     <Route path='/addProduct' element={<AddProductPage/>}/>
                     <Route path='/admindash' element={<AdminPage/>}/>
@@ -98,8 +102,6 @@ function App() {
           <Route path='/paypal' element={<PayPalButton/>}/>
           <Route path='/phone' element={<PhoneUpdateComponent/>}/>
           <Route path='/password' element={<PasswordUpdateComponent/>}/>
-          
-
         </Routes>
         </ErrorBoundary>
       </div>

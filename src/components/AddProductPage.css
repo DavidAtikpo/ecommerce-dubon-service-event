@@ -1,4 +1,4 @@
-/* Styles de base */
+/* Styles de base
 .add-product-page {
   width: 100%; 
   max-width: 300%;
@@ -34,11 +34,11 @@
 }
 .general-info h2, .meta-info h2 {
   margin-bottom: 10px;
-  color: blue; /* Titre en bleu */
+  color: blue; 
 }
 
 .general-info label, .meta-info label {
-  display: block; /* Place chaque label sur une nouvelle ligne */
+  display: block; 
   margin-top: 10px;
 }
 
@@ -46,10 +46,10 @@
 .general-info textarea, .meta-info textarea, 
 .general-info select {
   width: 100%; 
-  padding: 8px; /* Ajoute un espace interne */
-  margin-top: 5px; /* Espacement au-dessus des éléments */
-  border-radius: 4px; /* Coins arrondis */
-  border: 1px solid #ccc; /* Bordure grise */
+  padding: 8px; 
+  margin-top: 5px; 
+  border-radius: 4px;
+  border: 1px solid #ccc; 
   box-sizing: border-box;
 }
 
@@ -57,11 +57,11 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-top: 20px; /* Ajoute de l'espace au-dessus */
+  margin-top: 20px; 
 }
 
 .dropzone {
-  border: 2px dashed #cccccc; /* Bordure en pointillés pour le dropzone */
+  border: 2px dashed #cccccc; 
   padding: 20px;
   text-align: center;
   cursor: pointer;
@@ -69,25 +69,25 @@
 }
 
 .dropzone p {
-  color: #666; /* Texte grisé */
+  color: #666; 
 }
 
 .dropzone ul {
-  list-style-type: none; /* Supprime les puces des listes */
+  list-style-type: none; 
   padding: 0;
 }
 
-/* Styles pour les boutons */
+
 .button-container {
   display: flex;
-  justify-content: flex-end; /* Aligner les boutons à droite */
-  gap: 10px; /* Espace entre les boutons */
+  justify-content: flex-end; 
+  gap: 10px; 
   margin-top: 20px;
 }
 
 button {
   padding: 10px 20px;
-  background-color: #007bff; /* Bleu */
+  background-color: #007bff; 
   color: white;
   border: none;
   border-radius: 4px;
@@ -96,59 +96,57 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Couleur plus foncée au survol */
+  background-color: #0056b3; 
 }
 
 .cancel-btn {
-  background-color: #6c757d; /* Gris pour le bouton Cancel */
+  background-color: #6c757d; 
 }
 
 .cancel-btn:hover {
   background-color: #5a6268;
 }
 
-/* Styles responsive */
 
-/* Petits écrans (téléphones) */
 @media (max-width: 768px) {
   .general-info, .meta-info {
-    width: 100%; /* Les sections prennent toute la largeur */
+    width: 100%; 
   }
 
   .button-container {
-    flex-direction: column; /* Empile les boutons en colonne */
-    align-items: stretch; /* Étire les boutons pour prendre toute la largeur */
+    flex-direction: column; 
+    align-items: stretch; 
   }
 
   button {
-    width: 100%; /* Les boutons prennent toute la largeur */
+    width: 100%; 
   }
 }
 
-/* Tablettes (écrans moyens) */
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .general-info, .meta-info {
-    width: 48%; /* Légèrement plus large que sur les grands écrans */
+    width: 48%; 
   }
 
   button {
-    width: auto; /* Les boutons conservent leur taille par défaut */
+    width: auto; 
   }
 }
 
-/* Section de prévisualisation d'image */
+
 .image-previews {
   margin-top: 10px;
 }
 
 .preview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Grille responsive */
-  gap: 10px; /* Espace entre les images */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px; 
 }
 
 .preview-item {
-  position: relative; /* Nécessaire pour le bouton de suppression */
+  position: relative; 
   border: 1px solid #ddd;
   padding: 5px;
   background-color: #f9f9f9;
@@ -157,9 +155,9 @@ button:hover {
 }
 
 .preview-image {
-  width: 100%; /* L'image occupe tout l'espace disponible */
-  height: 100px; /* Hauteur fixe pour uniformiser */
-  object-fit: cover; /* Garde les proportions de l'image */
+  width: 100%; 
+  height: 100px; 
+  object-fit: cover;
 }
 
 .remove-image {
@@ -171,10 +169,147 @@ button:hover {
   color: white;
   font-weight: bold;
   padding: 2px 6px;
-  border-radius: 50%; /* Bouton en forme de cercle */
+  border-radius: 50%;
+  
   cursor: pointer;
 }
 
 .remove-image:hover {
-  background: darkred; /* Couleur plus foncée au survol */
+  background: darkred; 
+}
+ */
+
+
+ /* AddProductPage.css */
+
+.add-product-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-section {
+  margin-bottom: 20px;
+}
+
+.dropzone {
+  padding: 20px;
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  text-align: center;
+  color: #555;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.dropzone:hover {
+  background-color: #f0f8ff;
+}
+
+.image-previews {
+  margin-top: 10px;
+}
+
+.preview-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.preview-item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.remove-image {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4d4d;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.general-info, .meta-info {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="number"], textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
 }

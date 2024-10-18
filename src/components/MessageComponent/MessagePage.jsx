@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, CssBaseline, Toolbar, Grid } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import MessageTopBar from './MessageTopBar'
+import TopBar from '../topbar/TopBar'
 import Footer from '../Footer';
 import MessageNavBar from './MessageSideBar'; // Import de la nouvelle NavBar
 import AccueilComponent from './AccueilComponent';
@@ -30,8 +30,8 @@ const MessagePage = () => {
   return (
     <div>
       <CssBaseline />
-      <MessageTopBar />
-      <MessageNavBar onMenuClick={handleMenuClick} /> {/* Nouvelle NavBar */}
+      <TopBar />
+      <MessageNavBar onMenuClick={handleMenuClick} /> 
       
       <Box sx={{ p: 3 }}>
         <Toolbar /> {/* Espace pour le TopBar */}

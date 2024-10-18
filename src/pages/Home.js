@@ -2,7 +2,7 @@ import React from 'react';
 // import React, { useState } from 'react';
 // import { useSelector } from 'react-redux'; // Importer useSelector pour accéder à l'état du panier
 import TopBar from '../components/topbar/TopBar';  // Importez votre composant TopBar ici.
-import CategoryNavigationBar from '../components/categoriNavBar';
+// import CategoryNavigationBar from '../components/categoriNavBar';
 import NewProducts from '../components/newProduct';
 import Product from '../components/product';
 import Footer from '../components/Footer';
@@ -21,7 +21,7 @@ const UserDashboardLayout = ({ children }) => {
   return (
     <div className="dashboard">
       {/* Top Bar */}
-      {/* <TopBanner /> */}
+      <TopBanner />
       <TopBar/>
     
       {/* <CategoryNavigationBar /> */}

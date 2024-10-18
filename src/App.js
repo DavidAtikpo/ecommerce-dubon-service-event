@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import ProductPage from './pages/productPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import { HashRouter as Router, Route, Routes } from 'react-router-dom';
@@ -30,11 +31,7 @@ import PasswordUpdateComponent from './components/MonCompte/PasseWord';
 import PhoneUpdateComponent from './components/MonCompte/PhoneVerificationComponent';
 import LanguageSelector from './components/topbar/LanguageSelector';
 import Stats from './components/Stats';
-import AdminPage from './pages/admin/AdminPage';
 import AddProductPage from './components/AddProductPage';
-import AdminAuth from './pages/admin/AdminAuth'
-import AdminSideBar from './pages/admin/adminSideBar'
-
 
 
 // import MessagePage from './components/MessageComponent/MessagePage';
@@ -66,24 +63,20 @@ function App() {
         <Route path='/profilePhoto' element = {<ProfilePhotoComponent/>}/>
         <Route path='/language' element = {<LanguageSelector/> }/>
         <Route path='/stats' element ={<Stats/>}/>
+        <Route path='/add-produits' element ={<AddProductPage/>}/>
         {/* <Route path='/admin' element ={<Dashboard/>}/> */}
         {/* <Route path='/evenement' element ={<EventDashboard/>}/> */}
         {/* <Route path='/restaurant' element ={<RestaurantManagement/>}/> */}
 
-                    <Route path='/addProduct' element={<AddProductPage/>}/>
-                    <Route path='/admindash' element={<AdminPage/>}/>
-                    <Route path='/adminlogin' element ={<AdminAuth/>}/>
-                    <Route path='/admin/side-bar' element ={<AdminSideBar/>}/>
+
 
 
          
           {/* <Route path="/" element={<UserDashboardLayout />} /> */}
          
           <Route path="/productPage/:productId" element={<ProductPage />} />
-          {/* <Route path="/addproduct" element={<AddProductPage />} /> */}
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/adminDash" element={<AdminPage />} />
           <Route path="/message-page" element={<MessagePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />

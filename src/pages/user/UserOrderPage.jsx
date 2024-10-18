@@ -8,7 +8,7 @@ const UserOrdersPage = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const { data } = await axios.get(`{ API_URL }/api/orders/myorders`);
+      const { data } = await axios.get(`${ API_URL }/api/orders/myorders`);
       setOrders(data);
     };
     fetchOrders();

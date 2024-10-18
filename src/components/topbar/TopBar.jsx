@@ -327,6 +327,7 @@
 // };
 
 // export default NavBar;
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, MenuItem } from '@mui/material';
@@ -335,6 +336,7 @@ import logo from '../../assets/favicon.png';
 import profile from '../../assets/images/user-profile-svgrepo-com (1).svg';
 import { FaBars, FaShoppingCart, FaSearch } from 'react-icons/fa';
 import { MdLanguage } from 'react-icons/md';
+import shadows from '@mui/material/styles/shadows';
 // import zIndex from '@mui/material/styles/zIndex';
 
 const NavBar = () => {
@@ -454,15 +456,16 @@ const NavBar = () => {
 const styles = {
   navbar: {
     display: 'flex',
-    position:"fixed",
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#fff',
-    border:"1px 1px 2px solid #0808cd",
+    // border: '1px solid #0808cd',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.1)',
     padding: '10px',
-    position: 'sticky',
-    zIndex:'10',
-    flexWrap: 'wrap', // Allow elements to wrap on mobile
+    position: 'sticky', // Garder la barre en haut de l'écran
+    top: 0,             // Positionner la barre en haut de la page
+    zIndex: '10',
+    flexWrap: 'wrap', // Permettre aux éléments de se replier sur mobile
   },
   section1:{
     // display:'flex',
@@ -610,3 +613,4 @@ const styles = {
   },
 };
 export default NavBar;
+

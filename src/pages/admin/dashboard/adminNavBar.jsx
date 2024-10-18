@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import './adminNavBar.css';
 import logo from '../../../assets/favicon.png';
 
-const Navbar = ({ toggleSidebar }) => {
+const barDeNavigation = ({ toggleSidebar }) => {
   const [profilePicture, setProfilePicture] = useState('');
   const [notifications, setNotifications] = useState([]);
   const [messages, setMessages] = useState([]);
@@ -94,4 +94,4 @@ const Navbar = ({ toggleSidebar }) => {
   );
 };
 
-export default Navbar;
+export default barDeNavigation;

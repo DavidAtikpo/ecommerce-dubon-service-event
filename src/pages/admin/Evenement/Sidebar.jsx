@@ -1,7 +1,7 @@
 // Sidebar.js
 import React from 'react';
 import { FaBars, FaChartLine, FaBox, FaClipboardList, FaUsers, FaCog, FaCalendarAlt } from 'react-icons/fa';
-import '../dashboard/SideBar.css';
+// import '../dashboard/SideBar.css';
 
 const Sidebar = ({ onMenuClick, isOpen, toggleSidebar }) => {
   return (

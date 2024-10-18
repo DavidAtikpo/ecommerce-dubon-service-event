@@ -4,7 +4,7 @@ import TrainingList from './TrainingList';
 import EventList from './EventList';
 import ServiceList from './ServiceList';
 import RestaurantMenuList from './RestaurantMenuList';
-import './UserPage.css';
+// import './UserPage.css';
 
 const UserPage = () => {
   const [activeSection, setActiveSection] = useState('formations');

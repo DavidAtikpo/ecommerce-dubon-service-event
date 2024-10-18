@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config.js';
-import './SearchBar.css'
+// import './SearchBar.css'
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');

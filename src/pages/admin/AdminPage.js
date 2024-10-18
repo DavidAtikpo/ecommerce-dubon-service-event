@@ -15,7 +15,7 @@ import AdminOrders from '../orders/AdminOrders';
 import ProductManagement from './AdminProduct';
 import AdminShippingSettings from './AdminShippingSettings';
 import AnalyticsPage from './AdminAnalytics/Analytics';
-import './AdminPage.css'
+// import './AdminPage.css'
 
 const AdminPage = () => {
   const [selectedMenu, setSelectedMenu] = useState('analytics');

@@ -167,7 +167,7 @@ const AccountPage = () => {
           <ul>
             <li onClick={() => handleNavigation('/profile')}>mon Profil</li>
             <li onClick={() => handleNavigation('/orders')}>Les commandes</li>
-            <li onClick={() => handleNavigation('/upload-photo')}>télécharger Mon Photo</li>
+            <li onClick={() => handleNavigation('/upload-photo')}>télécharger Ma Photo</li>
             <li onClick={() => handleNavigation('/privacy-settings')}>Paramètre de confidentialité</li>
             <li onClick={() => handleNavigation('/messaging-services')}>Services de messagerie</li>
             <li onClick={() => handleNavigation('/tax-info')}>Renseignements fiscaux</li>

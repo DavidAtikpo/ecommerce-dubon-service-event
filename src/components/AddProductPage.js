@@ -374,13 +374,13 @@ const AddProductPage = () => {
             <label>Quantite *</label>
             <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
 
-            <label>Mot-cles (comma-separated)</label>
+            <label>Mot-cles (separe de virgule)</label>
             <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} />
 
             <label>Specifications</label>
             <textarea value={specifications} onChange={(e) => setSpecifications(e.target.value)}></textarea>
 
-            <label>Variantes (comma-separated, ex: Small, Medium, Large)</label>
+            <label>Variantes (separe de virgule, ex: petit, Moyen, Large)</label>
             <input type="text" value={variants.join(',')} onChange={(e) => setVariants(e.target.value.split(','))} />
 
             <label>Taux de taxe (%)</label>
@@ -400,7 +400,7 @@ const AddProductPage = () => {
             <input type="number" placeholder="Poids (kg)" value={dimensions.weight} onChange={(e) => setDimensions({...dimensions, weight: e.target.value})} />
 
             {/* Ajouter un champ pour l'URL de l'image */}
-            <label>URL de l'image *</label>
+            <label>Lien de l'image *</label>
             <input type="text" value={imageURL} onChange={(e) => setImageURL(e.target.value)} required />
           </div>
 
@@ -408,20 +408,20 @@ const AddProductPage = () => {
           <div className="meta-info">
             <h2>Meta Information</h2>
 
-            <label>Meta Title</label>
+            <label>Meta Titre</label>
             <input type="text" value={metaTitle} onChange={(e) => setMetaTitle(e.target.value)} />
 
             <label>Meta Description</label>
             <textarea value={metaDescription} onChange={(e) => setMetaDescription(e.target.value)}></textarea>
 
-            <label>Meta Keywords (comma-separated)</label>
+            <label>Meta Mot-cles (separe de virgule)</label>
             <input type="text" value={metaKeywords} onChange={(e) => setMetaKeywords(e.target.value)} />
           </div>
         </div>
 
         <div className='button-container'>
           <button type="button" className='cancel-btn'>Cancel</button>
-          <button type="submit">Add Product</button>
+          <button type="submit">Ajouter Produits</button>
         </div>
       </form>
     </div>

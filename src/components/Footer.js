@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-payment">
-          <h5>PAYMENT METHODS & DELIVERY PARTNERS</h5>
+          <h5>METHODES DE PAYEMENT & PARTENAIRES DE  LIVRAISON</h5>
           <div className="payment-icons">
             {/* <i className="fab fa-cc-mastercard"></i> */}
             <i className="fab fa-cc-visa"></i>

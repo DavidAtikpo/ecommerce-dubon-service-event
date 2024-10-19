@@ -1,4 +1,4 @@
-.banner-container {
+.bannert-container {
     background-color: #0808cd; /* Bleu dodger */
     padding: 20px;
     overflow: hidden;
@@ -7,7 +7,7 @@
     height: 25px; /* Ajuster la hauteur si nécessaire */
   }
   
-  .banner-text {
+  .bannert-text {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
@@ -15,7 +15,7 @@
     position: absolute;
   }
   
-  .bounce-slide-cycle {
+  .bouncet-slide-cycle {
     animation: bounceSlideCycle 54s ease-in-out infinite;
   }
   

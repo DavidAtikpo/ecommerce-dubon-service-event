@@ -61,35 +61,35 @@ const Product = () => {
   };
 
   return (
-    <div className="main-container">
+    <div className="main-containeru">
       {Object.keys(productsByCategory).map((category, index) => (
-        <div key={index} className="category-section">
-          <h2 className="category-name">{category}</h2>
-          <div className="products-grid">
+        <div key={index} className="category-sectionu">
+          <h2 className="category-nameu">{category}</h2>
+          <div className="products-gridu">
             {productsByCategory[category].map((product) => (
-              <div key={product._id} className="product-card">
-                <div className="product-image-container" onClick={() => handleProductClick(product._id)}>
+              <div key={product._id} className="product-cardu">
+                <div className="product-image-containeru" onClick={() => handleProductClick(product._id)}>
                   <img
                     src={product.images.length > 0 ? product.images[0] : '/default-image.jpg'}
                     alt={product.title}
-                    className="product-image"
+                    className="product-imageu"
                   />
                 </div>
-                <div className="product-info">
-                  <h3 className="product-title">{product.title}</h3>
-                  <p className="product-price">Prix: {product.price.toLocaleString()} FCFA</p>
+                <div className="product-infou">
+                  <h3 className="product-titleu">{product.title}</h3>
+                  <p className="price-original">Prix: {product.price.toLocaleString()} FCFA</p>
                   {product.discount && product.discount > 0 ? (
-                    <span className="discount-badge">-{product.discount}%</span>
+                    <span className="price-percentage">-{product.discount}%</span>
                   ) : (
-                    <span className="no-discount">Aucune promotion</span>
+                    <span className="no-discountu">Aucune promotion</span>
                   )}
-                  <p className="final-price">
+                  <p className="final-priceu">
                     Prix Final: {(product.price - (product.price * product.discount / 100)).toFixed(2)} FCFA
                   </p>
-                  <p className="product-rating">
+                  <p className="product-ratingu">
                   {/* <ProductRating productId={product._id} /> */}
                   </p>
-                  <button className="add-to-cart-btn" onClick={() => handleAddToCart(product)}>
+                  <button className="add-to-cart-btnu" onClick={() => handleAddToCart(product)}>
                     Ajouter au panier
                   </button>
                 </div>

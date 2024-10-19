@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './pages/Home';
+import AdminPage from './pages/admin/AdminPage';
 // import Products from './pages/Products';
 import LoginPage from './pages/auth/LoginPage';
 import Cart from './pages/Cart';
@@ -18,7 +19,7 @@ import ShippingAddressPage from './components/ShippingAddressPage';
 import PaymentPage from './components/PaymentPage';
 import CheckingStatus from './pages/orders/OrdreStatus';
 import RatingPopup from './pages/orders/RatingPopup';
-import ProductManagement from './pages/admin/ProductManagement';
+import ProductDetails from './pages/admin/ProductManagement';
 import ErrorBoundary from './components/ErrorBoundary';
 import MessageSideBar from './components/MessageComponent/MessageSideBar';
 import ProfilePhotoUploader from './components/MonCompte/AccountPage';
@@ -31,7 +32,9 @@ import PasswordUpdateComponent from './components/MonCompte/PasseWord';
 import PhoneUpdateComponent from './components/MonCompte/PhoneVerificationComponent';
 import LanguageSelector from './components/topbar/LanguageSelector';
 import Stats from './components/Stats';
+import AdminProduct from './pages/admin/AdminProduct'
 import AddProductPage from './components/AddProductPage';
+import Ecran from './components/Ecran'
 
 
 // import MessagePage from './components/MessageComponent/MessagePage';
@@ -63,6 +66,10 @@ function App() {
         <Route path='/profilePhoto' element = {<ProfilePhotoComponent/>}/>
         <Route path='/language' element = {<LanguageSelector/> }/>
         <Route path='/stats' element ={<Stats/>}/>
+        <Route path='/produits' element ={<AdminProduct/>}/>
+        <Route path='/admin' element ={<AdminPage/>}/>
+        <Route path='/ecran' element ={<Ecran/>}/>
+
         <Route path='/add-produits' element ={<AddProductPage/>}/>
         {/* <Route path='/admin' element ={<Dashboard/>}/> */}
         {/* <Route path='/evenement' element ={<EventDashboard/>}/> */}
@@ -86,7 +93,7 @@ function App() {
           <Route path='/payment' element={<PaymentPage/>}/>
           <Route path='/user-status' element={<CheckingStatus/>}/>
           <Route path='/rating-popup' element={<RatingPopup/>}/>
-          <Route path='/dubon-ser-pro-ma/:productId' element={<ProductManagement/>}/>
+          <Route path='/dubon-ser-pro-ma/:productId' element={<ProductDetails/>}/>
           <Route path='/gerer-compte' element={<ProfilePhotoUploader/>}/>
           <Route path='/message-side-bar' element={<MessageSideBar/>}/>
           <Route path='/summary' element={<OrderSummaryPage/>}/>

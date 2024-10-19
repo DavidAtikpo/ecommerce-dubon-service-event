@@ -39,12 +39,12 @@ const PromoPopup = () => {
     if (!showPopup) return null;  // Si le pop-up ne doit pas s'afficher, ne renvoie rien
 
     return (
-        <div className="promo-popup">
+        <div className="promo-popups">
                 <h2>Félicitations !</h2>
                 <p>Vous avez reçu un code promo exclusif pour votre première visite :</p>
                 <strong>{promoCode}</strong>
                 <p>Utilisez ce code lors de votre commande pour obtenir une réduction sur nos produits.</p>
-                <button className='bouton' onClick={handleClosePopup}>Fermer</button>
+                <button className='boutonv' onClick={handleClosePopup}>Fermer</button>
             
         </div>
     );

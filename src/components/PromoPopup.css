@@ -1,4 +1,4 @@
-.promo-popup {
+.promo-popups {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -21,7 +21,7 @@
     max-width: 200px;
 } */
 
-.bouton {
+.boutonv {
     margin-top: 10px;
     padding: 10px 20px;
     background-color: #f00;
@@ -35,17 +35,17 @@
 
 /* Media query pour les très petits écrans (téléphones) */
 @media (max-width: 600px) {
-    .promo-popup {
+    .promo-popups {
         padding: 15px;
         font-size: 12px;
         max-width: 200px;  /* Prend plus de largeur sur petits écrans */
     }
 
-    .popup-content {
+    .popup-contentv {
         font-size: 0.9rem; /* Réduit la taille du texte pour une meilleure lisibilité */
     }
 
-    button {
+    buttonv {
         padding: 10px 15px; /* Réduit légèrement la taille des boutons sur mobile */
         font-size: 0.9rem;
     }

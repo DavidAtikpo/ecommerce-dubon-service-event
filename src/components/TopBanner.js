@@ -33,12 +33,12 @@ const AdBanner = () => {
 
   useEffect(() => {
     const banner = bannerRef.current;
-    banner.classList.add('bounce-slide-cycle');
+    banner.classList.add('bouncet-slide-cycle');
   }, []);
 
   return (
-    <div className="banner-container">
-      <div ref={bannerRef} className="banner-text">ce site sera bien disponible ! dubonservicesevent.com est votre plateforme idéale pour acheter des produits frais et congelés, profiter d'événements exclusifs et accéder à divers services</div>
+    <div className="bannert-container">
+      <div ref={bannerRef} className="bannert-text">ce site sera bien disponible ! dubonservicesevent.com est votre plateforme idéale pour acheter des produits frais et congelés, profiter d'événements exclusifs et accéder à divers services</div>
     </div>
   );
 };

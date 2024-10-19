@@ -5,7 +5,6 @@ import Header from '../../components/Header';
 import useMediaQuery from '@mui/material/useMediaQuery'; // Pour la gestion des écrans
 import { useTheme } from '@mui/material/styles';
 import AddProductPage from '../../components/AddProductPage';
-import '../../styles/pages/AdminPage.css'; // Import du fichier CSS
 import AdminAdForm from '../../components/AdminAdForm'; // Import du formulaire pour les publicités
 import ManageBanners from '../../components/ManageBanners';
 import AddEvent from '../adminMenu/AddEvent';
@@ -15,7 +14,7 @@ import AdminOrders from '../orders/AdminOrders';
 import ProductManagement from './AdminProduct';
 import AdminShippingSettings from './AdminShippingSettings';
 import AnalyticsPage from './AdminAnalytics/Analytics';
-// import './AdminPage.css'
+import './AdminPage.css'
 
 const AdminPage = () => {
   const [selectedMenu, setSelectedMenu] = useState('analytics');

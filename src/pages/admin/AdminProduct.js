@@ -1,9 +1,136 @@
+import React, { useEffect, useState, useRef } from 'react';
+import './AdminProduct.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+// const MAX_PRODUCTS_PER_PAGE = 6; // Limite des produits affichés
+
+const AdminProduct = () => {
+  const [productsByCategory, setProductsByCategory] = useState({});
+  const navigate = useNavigate();
+  const scrollRefs = useRef({}); // Références pour chaque section pour gérer le défilement
+
+  // Regrouper les produits par catégorie
+  const groupByCategory = (products) =>
+    products.reduce((acc, product) => {
+      const category = product.category;
+      if (!acc[category]) acc[category] = [];
+      acc[category].push(product);
+      return acc;
+    }, {});
+
+  // Charger les produits depuis le serveur
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/api/product/`)
+      .then((response) => {
+        const products = response.data;
+        const groupedProducts = groupByCategory(products);
+        setProductsByCategory(groupedProducts);
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la récupération des produits:', error);
+      });
+  }, []);
+
+  // Rediriger vers la page de détail du produit
+  const handleProductClick = (productId) => {
+    navigate(`/dubon-ser-pro-ma/${productId}`);
+  };
+
+  // Défilement horizontal
+  const scroll = (category, direction) => {
+    const scrollAmount = direction === 'left' ? -300 : 300;
+    scrollRefs.current[category].scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <div className="main-containers">
+      <h2 className="category-titles">Catégories</h2>
+      {Object.keys(productsByCategory).map((category, index) => (
+        <div key={index} className="categorys-sections">
+          <h2 className="category-names">{category}</h2>
+
+          {/* Flèche gauche */}
+          <FaChevronLeft
+            className="scroll-arrow left-arrows"
+            onClick={() => scroll(category, 'left')}
+          />
+
+          {/* Grille de produits avec défilement horizontal */}
+          <div
+            className="products-grids"
+            ref={(el) => (scrollRefs.current[category] = el)}
+          >
+            {productsByCategory[category].map((product) => (
+              <div
+                key={product._id}
+                className="product-cards"
+                onClick={() => handleProductClick(product._id)}
+              >
+                <div className="product-image-containers">
+                  <img
+                    src={
+                      product.images.length > 0
+                        ? product.images[0]
+                        : '/default-image.jpg'
+                    }
+                    alt={product.title}
+                    className="product-images"
+                  />
+                </div>
+                <div className="product-infos">
+                  <h3 className="product-titles">{product.title}</h3>
+                  <p className="product-prices">
+                    Prix: {product.price.toLocaleString()} FCFA
+                  </p>
+                  {product.discount && product.discount > 0 ? (
+                    <span className="discount-badges">
+                      -{product.discount}%
+                    </span>
+                  ) : (
+                    <span className="no-discounts">Aucune promotion</span>
+                  )}
+                  <p className="final-prices">
+                    Prix Final:{' '}
+                    {(
+                      product.price -
+                      (product.price * product.discount) / 100
+                    ).toFixed(2)}{' '}
+                    FCFA
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Flèche droite */}
+          <FaChevronRight
+            className="scrolls-arrow rights-arrow"
+            onClick={() => scroll(category, 'right')}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default AdminProduct;
+
+
+
+
 // import React, { useEffect, useState } from 'react';
 // import '../../components/product.css';
 // import axios from 'axios';
 // import { useNavigate } from 'react-router-dom';
 // import { API_URL } from '../../config';
-// import NewProducts from '../../components/newProduct';
+// // import NewProducts from '../../components/newProduct';
 
 // const ProductManagement = () => {
 //   const [productsByCategory, setProductsByCategory] = useState({});
@@ -56,7 +183,7 @@
 
 //   return (
 //       <div className="main-container">
-//         <NewProducts/>,
+//         {/* <NewProducts/>, */}
 //       <h2 className="category-title">Categories</h2>
 //       {Object.keys(productsByCategory).map((category, index) => (
 //         <div key={index} className="category-section">
@@ -106,155 +233,155 @@
 
 // export default ProductManagement;
 
-import React, { useEffect, useState } from 'react';
-import './AdminProduct.css';
-import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
-import { API_URL } from '../../config';
+// import React, { useEffect, useState } from 'react';
+// import './AdminProduct.css';
+// import axios from 'axios';
+// // import { useNavigate } from 'react-router-dom';
+// import { API_URL } from '../../config';
 
-const ProductManagement = () => {
-  const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(10);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  // const navigate = useNavigate();
+// const Products = () => {
+//   const [products, setProducts] = useState([]);
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [productsPerPage, setProductsPerPage] = useState(10);
+//   const [selectedProduct, setSelectedProduct] = useState(null);
+//   // const navigate = useNavigate();
 
-  // Charger les produits depuis le serveur
-  useEffect(() => {
-    axios.get(`${API_URL}/api/product/`)
-      .then(response => {
-        setProducts(response.data);
-      })
-      .catch(error => {
-        console.error("Erreur lors de la récupération des produits :", error);
-      });
-  }, []);
+//   // Charger les produits depuis le serveur
+//   useEffect(() => {
+//     axios.get(`${API_URL}/api/product/`)
+//       .then(response => {
+//         setProducts(response.data);
+//       })
+//       .catch(error => {
+//         console.error("Erreur lors de la récupération des produits :", error);
+//       });
+//   }, []);
 
-  // Filtrer les produits par le terme de recherche
-  const filteredProducts = products.filter(product => 
-    (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
-    (product.category && product.category.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+//   // Filtrer les produits par le terme de recherche
+//   const filteredProducts = products.filter(product => 
+//     (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+//     (product.category && product.category.toLowerCase().includes(searchTerm.toLowerCase()))
+//   );
   
 
-  // Pagination
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+//   // Pagination
+//   const indexOfLastProduct = currentPage * productsPerPage;
+//   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+//   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+//   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+//   const handlePageChange = (pageNumber) => {
+//     setCurrentPage(pageNumber);
+//   };
 
-  const handleProductsPerPageChange = (event) => {
-    setProductsPerPage(Number(event.target.value));
-    setCurrentPage(1); // Retour à la première page quand on change le nombre de produits par page
-  };
+//   const handleProductsPerPageChange = (event) => {
+//     setProductsPerPage(Number(event.target.value));
+//     setCurrentPage(1); // Retour à la première page quand on change le nombre de produits par page
+//   };
 
-  // Dropdown handling for actions
-  const handleDropdownClick = (productId) => {
-    setSelectedProduct(selectedProduct === productId ? null : productId); // Ouvre/ferme le menu dropdown
-  };
+//   // Dropdown handling for actions
+//   const handleDropdownClick = (productId) => {
+//     setSelectedProduct(selectedProduct === productId ? null : productId); // Ouvre/ferme le menu dropdown
+//   };
 
-  const handleAction = (action, productId) => {
-    console.log(`Action ${action} sur le produit avec ID : ${productId}`);
-    // Gérer l'action ici (rediriger vers une page d'édition, etc.)
-  };
+//   const handleAction = (action, productId) => {
+//     console.log(`Action ${action} sur le produit avec ID : ${productId}`);
+//     // Gérer l'action ici (rediriger vers une page d'édition, etc.)
+//   };
 
-  return (
-    <div className="product-management">
-      <h1>Gestion des produits</h1>
+//   return (
+//     <div className="product-management">
+//       <h1>Gestion des produits</h1>
 
-      {/* Barre de recherche */}
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Start typing to search for products"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+//       {/* Barre de recherche */}
+//       <div className="search-bar">
+//         <input
+//           type="text"
+//           placeholder="Start typing to search for products"
+//           value={searchTerm}
+//           onChange={(e) => setSearchTerm(e.target.value)}
+//         />
+//       </div>
 
-      {/* Choix du nombre de produits par page */}
-      <div className="table-controls">
-        <label>
-          Rows per page:
-          <select value={productsPerPage} onChange={handleProductsPerPageChange}>
-            <option value={10}>10</option>
-            <option value={25}>25</option>
-            <option value={50}>50</option>
-            <option value={100}>100</option>
-          </select>
-        </label>
-      </div>
+//       {/* Choix du nombre de produits par page */}
+//       <div className="table-controls">
+//         <label>
+//           Rows per page:
+//           <select value={productsPerPage} onChange={handleProductsPerPageChange}>
+//             <option value={10}>10</option>
+//             <option value={25}>25</option>
+//             <option value={50}>50</option>
+//             <option value={100}>100</option>
+//           </select>
+//         </label>
+//       </div>
 
-      <table className="product-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Nom du produit</th>
-            <th>Catégorie</th>
-            <th>Stock</th>
-            <th>Prix</th>
-            <th>Remise</th>
-            <th>Réduction</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentProducts.map((product) => (
-            <tr key={product._id}>
-              <td>
-                <img src={product.images || '/default-image.jpg'} alt={product.title} className="product-image" />
-              </td>
-              <td>{product.title}</td>
-              <td>{product.category}</td>
-              <td>
-                {product.stock > 0 ? (
-                  <span className="in-stock">{product.stock} en stock</span>
-                ) : (
-                  <span className="out-of-stock">Rupture de stock</span>
-                )}
-              </td>
-              <td>{product.price} FCFA</td>
-              <td>{product.discount ? `${product.discount}%` : 'Pas de remise'}</td>
-              <td>{(product.price - (product.price * product.discount / 100)).toFixed(2)} FCFA</td>
-              <td className="actions">
-                <div className="dropdown">
-                  <button className='tp' onClick={() => handleDropdownClick(product._id)}>&#x22EE;</button>
-                  {selectedProduct === product._id && (
-                    <div className="dropdown-menu">
-                      <button onClick={() => handleAction('edit', product._id)}>Editer</button>
-                      <button onClick={() => handleAction('duplicate', product._id)}>Dupliquer</button>
-                      <button onClick={() => handleAction('addTag', product._id)}>Ajouter un tag</button>
-                      <button onClick={() => handleAction('removeTag', product._id)}>Enlever un tag</button>
-                      <button onClick={() => handleAction('delete', product._id)} className="delete-button">Supprimer</button>
-                    </div>
-                  )}
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+//       <table className="product-table">
+//         <thead>
+//           <tr>
+//             <th>Image</th>
+//             <th>Nom du produit</th>
+//             <th>Catégorie</th>
+//             <th>Stock</th>
+//             <th>Prix</th>
+//             <th>Remise</th>
+//             <th>Réduction</th>
+//             <th>Actions</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {currentProducts.map((product) => (
+//             <tr key={product._id}>
+//               <td>
+//                 <img src={product.images || '/default-image.jpg'} alt={product.title} className="product-image" />
+//               </td>
+//               <td>{product.title}</td>
+//               <td>{product.category}</td>
+//               <td>
+//                 {product.stock > 0 ? (
+//                   <span className="in-stock">{product.stock} en stock</span>
+//                 ) : (
+//                   <span className="out-of-stock">Rupture de stock</span>
+//                 )}
+//               </td>
+//               <td>{product.price} FCFA</td>
+//               <td>{product.discount ? `${product.discount}%` : 'Pas de remise'}</td>
+//               <td>{(product.price - (product.price * product.discount / 100)).toFixed(2)} FCFA</td>
+//               <td className="actions">
+//                 <div className="dropdown">
+//                   <button className='tp' onClick={() => handleDropdownClick(product._id)}>&#x22EE;</button>
+//                   {selectedProduct === product._id && (
+//                     <div className="dropdown-menu">
+//                       <button onClick={() => handleAction('edit', product._id)}>Editer</button>
+//                       <button onClick={() => handleAction('duplicate', product._id)}>Dupliquer</button>
+//                       <button onClick={() => handleAction('addTag', product._id)}>Ajouter un tag</button>
+//                       <button onClick={() => handleAction('removeTag', product._id)}>Enlever un tag</button>
+//                       <button onClick={() => handleAction('delete', product._id)} className="delete-button">Supprimer</button>
+//                     </div>
+//                   )}
+//                 </div>
+//               </td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
 
-      {/* Pagination */}
-      <div className="pagination">
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index}
-            className={currentPage === index + 1 ? 'active' : ''}
-            onClick={() => handlePageChange(index + 1)}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-};
+//       {/* Pagination */}
+//       <div className="pagination">
+//         {Array.from({ length: totalPages }, (_, index) => (
+//           <button
+//             key={index}
+//             className={currentPage === index + 1 ? 'active' : ''}
+//             onClick={() => handlePageChange(index + 1)}
+//           >
+//             {index + 1}
+//           </button>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 
-export default ProductManagement;
+// export default Products;

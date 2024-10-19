@@ -1,4 +1,4 @@
-.product-management{
+/* .product-management{
 
 }
 
@@ -13,7 +13,7 @@ th{
   padding: 10px;
   width: 100%;
   border: 1px solid #ddd;
-  /* border-radius: 1px; */
+
   font-size: 10px;
 }
 .out-of-stock{
@@ -28,7 +28,7 @@ th{
 
 .product-table th, .product-table td {
   padding: 0px 15px;
-  /* border: 1px solid #ddd; */
+
   text-align: left;
 }
 
@@ -52,7 +52,7 @@ th{
   background-color: rgb(208, 196, 196);
   border: 1px solid #ddd;
   padding: 10px;
-  /* font-size: 10px; */
+
   z-index: 100;
 }
 .tp{
@@ -101,4 +101,110 @@ th{
 
 .pagination button:hover {
   background-color: #ddd;
+} */
+
+
+.main-containers {
+  padding: 20px;
+}
+
+.category-titles {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.categorys-sections {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.category-names {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.products-grids {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px; /* Espacement entre les produits */
+  padding: 10px 0;
+}
+
+.product-cards {
+  flex: 0 0 200px; /* Taille fixe des produits */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.product-cards:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-containers {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.product-images {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-infos {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.discount-badges {
+  background-color: red;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.no-discounts {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.final-prices {
+  font-weight: bold;
+  color: green;
+}
+
+/* Flèches de navigation */
+.scrolls-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  display: none; /* Par défaut caché */
+}
+
+.lefts-arrow {
+  left: 10px;
+}
+
+.rights-arrow {
+  right: 10px;
+}
+
+/* Afficher les flèches lorsque la section est en plein écran */
+.category-section:hover .scroll-arrow {
+  display: block;
 }

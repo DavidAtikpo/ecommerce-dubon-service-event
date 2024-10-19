@@ -25,8 +25,8 @@ const NavigationMenu = () => {
   };
 
   return (
-    <div className="navigation-menu">
-      <ul className="main-categories">
+    <div className="navigationt-menu">
+      <ul className="maint-categories">
         {categories.map((category, index) => (
           <li
             key={index}
@@ -34,7 +34,7 @@ const NavigationMenu = () => {
           >
             {category.category}
             {activeCategory === category && (
-              <ul className="sub-categories">
+              <ul className="subt-categories">
                 {category.subcategories.map((sub, subIndex) => (
                   <li 
                     key={subIndex}
@@ -42,9 +42,9 @@ const NavigationMenu = () => {
                   >
                     {sub.name}
                     {activeSubcategory === sub && (
-                      <div className="subcategory-items">
+                      <div className="subcategoryt-items">
                         {sub.items.map((item, itemIndex) => (
-                          <div key={itemIndex} className="item">
+                          <div key={itemIndex} className="itemt">
                             <img src={item.image} alt={item.name} />
                             <p>{item.name}</p>
                           </div>

@@ -28,35 +28,35 @@ const NewProducts = () => {
   }, []);
 
   if (loading) {
-    return <Typography variant="body1">Chargement des nouveaux produits...</Typography>;
+    return <Typography variant="body">Chargement des nouveaux produits...</Typography>;
   }
 
   if (error) {
-    return <Typography variant="body1" color="error">{error}</Typography>;
+    return <Typography variant="body" color="error">{error}</Typography>;
   }
 
   const handleProductClick = (productId) => {
     navigate(`/productPage/${productId}`); // Redirection vers la page de détail du produit
   };
   return (
-    <div className="container">
+    <div className="category-sectionu">
       <h4 className="title">Nouveaux Produits</h4>
-      <div className="scroll-container">
-        <div className="scroll-content">
+      <div className="scroll-containert">
+        <div className="scroll-contentt">
           {products.length > 0 ? (
             products.map((product) => (
-              <div className="product-card" key={product._id} onClick={() => handleProductClick(product._id)}>
-                <div className="card">
+              <div className="product-cardt" key={product._id} onClick={() => handleProductClick(product._id)}>
+                <div className="cardt">
                   <img
-                    className="card-media"
+                    className="card-mediat"
                     alt={product.title}
                     src={product.images[0]} // Assurez-vous que 'product.images' est une URL valide
                     title={product.title}
                   />
-                  <div className="card-content">
-                    <h6 className="product-title">{product.title}</h6>
-                    <p className="product-description">{product.description}</p>
-                    <h6 className="product-price">
+                  <div className="card-contentt">
+                    <h6 className="product-titlet">{product.title}</h6>
+                    {/* <p className="product-descriptiont">{product.description}</p> */}
+                    <h6 className="product-pricet">
                       {product.discount ? (
                         <>
                           {product.finalPrice} FCFA
@@ -67,13 +67,13 @@ const NewProducts = () => {
                         <span className="price">{product.price} FCFA</span>
                       )}
                     </h6>
-                    <button className="buy-button">Acheter maintenant</button>
+                    <button className="buy-buttont">Acheter maintenant</button>
                   </div>
                 </div>
               </div>
             ))
           ) : (
-            <p className="no-products">Aucun produit disponible.</p>
+            <p className="no-productst">Aucun produit disponible.</p>
           )}
         </div>
       </div>

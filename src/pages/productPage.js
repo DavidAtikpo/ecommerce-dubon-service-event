@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 // import Cookies from 'js-cookie';
-import '../styles/pages/AdminPage.css'
+// import '../styles/pages/AdminPage.css'
 import Footer from '../components/Footer';
 import TopBar from '../components/topbar/TopBar';
 import BeforeFooter from '../components/BeforeFooter';

@@ -1,16 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import './AdminProduct.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// const MAX_PRODUCTS_PER_PAGE = 6; // Limite des produits affichés
-
 const AdminProduct = () => {
   const [productsByCategory, setProductsByCategory] = useState({});
   const navigate = useNavigate();
-  const scrollRefs = useRef({}); // Références pour chaque section pour gérer le défilement
+  const scrollRefs = useRef({}); // Références pour gérer le défilement des catégories
 
   // Regrouper les produits par catégorie
   const groupByCategory = (products) =>
@@ -21,7 +19,7 @@ const AdminProduct = () => {
       return acc;
     }, {});
 
-  // Charger les produits depuis le serveur
+  // Charger les produits depuis l'API
   useEffect(() => {
     axios
       .get(`${API_URL}/api/product/`)
@@ -40,20 +38,30 @@ const AdminProduct = () => {
     navigate(`/dubon-ser-pro-ma/${productId}`);
   };
 
-  // Défilement horizontal
+  // Fonction pour gérer le défilement horizontal
   const scroll = (category, direction) => {
-    const scrollAmount = direction === 'left' ? -300 : 300;
-    scrollRefs.current[category].scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth',
-    });
+    const element = scrollRefs.current[category]; // Vérification de la référence
+    if (element) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      element.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+    } else {
+      console.warn(`Référence introuvable pour la catégorie : ${category}`);
+    }
   };
+
+  // Gestion de la référence avec useCallback pour stabilité
+  const setScrollRef = useCallback((category) => (el) => {
+    if (el) scrollRefs.current[category] = el;
+  }, []);
 
   return (
     <div className="main-containers">
       <h2 className="category-titles">Catégories</h2>
-      {Object.keys(productsByCategory).map((category, index) => (
-        <div key={index} className="categorys-sections">
+      {Object.entries(productsByCategory).map(([category, products], index) => (
+        <div key={category} className="categorys-sections">
           <h2 className="category-names">{category}</h2>
 
           {/* Flèche gauche */}
@@ -62,12 +70,9 @@ const AdminProduct = () => {
             onClick={() => scroll(category, 'left')}
           />
 
-          {/* Grille de produits avec défilement horizontal */}
-          <div
-            className="products-grids"
-            ref={(el) => (scrollRefs.current[category] = el)}
-          >
-            {productsByCategory[category].map((product) => (
+          {/* Grille de produits avec référence de défilement */}
+          <div className="products-grids" ref={setScrollRef(category)}>
+            {products.map((product) => (
               <div
                 key={product._id}
                 className="product-cards"
@@ -121,6 +126,7 @@ const AdminProduct = () => {
 };
 
 export default AdminProduct;
+
 
 
 

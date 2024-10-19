@@ -37,16 +37,16 @@ const Ecran = () => {
         <div className="p-4">
           {selectedMenu === 'analytics' && <AnalyticsPage />}
           {selectedMenu === 'add-product' && <AddProductPage />}
-          {selectedMenu === 'order-history' && <AdminOrders />}
+          {selectedMenu === 'order-history' && <h2>en cours de traitement ...</h2>}
           {selectedMenu === 'products' && <ProductManagement />}
           {selectedMenu === 'categories' && <h2>en cours de traitement ...</h2>}
-          {selectedMenu === 'calendar' && <h2>Calendrier</h2>}
-          {selectedMenu === 'tables' && <h2>Tables</h2>}
-          {selectedMenu === 'ads' && <AdminAdForm />}
-          {selectedMenu === 'add-restaurant' && <AddRestaurant />}
-          {selectedMenu === 'banner' && <ManageBanners />}
-          {selectedMenu === 'add-service' && <AddService />}
-          {selectedMenu === 'shipping-setting' && <AdminShippingSettings />}
+          {selectedMenu === 'calendar' && <h2>en cours de traitement ...</h2>}
+          {selectedMenu === 'tables' && <h2>en cours de traitement ...</h2>}
+          {selectedMenu === 'ads' && <h2>en cours de traitement ...</h2>}
+          {selectedMenu === 'add-restaurant' &&<h2>en cours de traitement ...</h2>}
+          {selectedMenu === 'banner' && <h2>en cours de traitement ...</h2>}
+          {selectedMenu === 'add-service' && <h2>en cours de traitement ...</h2>}
+          {selectedMenu === 'shipping-setting' && <h2>en cours de traitement ...</h2>}
         </div>
       </div>
     </div>

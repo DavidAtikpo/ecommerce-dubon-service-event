@@ -8,7 +8,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 const AdminProduct = () => {
   const [productsByCategory, setProductsByCategory] = useState({});
   const navigate = useNavigate();
-  const scrollRefs = useRef({}); // Références pour gérer le défilement des catégories
+  const scrollRefs = useRef({}); // Références pour le défilement horizontal
 
   // Regrouper les produits par catégorie
   const groupByCategory = (products) =>
@@ -47,8 +47,6 @@ const AdminProduct = () => {
         left: scrollAmount,
         behavior: 'smooth',
       });
-    } else {
-      console.warn(`Référence introuvable pour la catégorie : ${category}`);
     }
   };
 
@@ -60,72 +58,77 @@ const AdminProduct = () => {
   return (
     <div className="main-containers">
       <h2 className="category-titles">Catégories</h2>
-      {Object.entries(productsByCategory).map(([category, products], index) => (
-        <div key={category} className="categorys-sections">
-          <h2 className="category-names">{category}</h2>
+      {Object.entries(productsByCategory).length > 0 ? (
+        Object.entries(productsByCategory).map(([category, products]) => (
+          <div key={category} className="categorys-sections">
+            <h2 className="category-names">{category}</h2>
 
-          {/* Flèche gauche */}
-          <FaChevronLeft
-            className="scroll-arrow left-arrows"
-            onClick={() => scroll(category, 'left')}
-          />
+            {/* Flèche gauche */}
+            <FaChevronLeft
+              className="scroll-arrow left-arrows"
+              onClick={() => scroll(category, 'left')}
+            />
 
-          {/* Grille de produits avec référence de défilement */}
-          <div className="products-grids" ref={setScrollRef(category)}>
-            {products.map((product) => (
-              <div
-                key={product._id}
-                className="product-cards"
-                onClick={() => handleProductClick(product._id)}
-              >
-                <div className="product-image-containers">
-                  <img
-                    src={
-                      product.images.length > 0
-                        ? product.images[0]
-                        : '/default-image.jpg'
-                    }
-                    alt={product.title}
-                    className="product-images"
-                  />
+            {/* Grille de produits avec référence de défilement */}
+            <div className="products-grids" ref={setScrollRef(category)}>
+              {products.map((product) => (
+                <div
+                  key={product._id}
+                  className="product-cards"
+                  onClick={() => handleProductClick(product._id)}
+                >
+                  <div className="product-image-containers">
+                    <img
+                      src={
+                        product.images.length > 0
+                          ? product.images[0]
+                          : '/default-image.jpg'
+                      }
+                      alt={product.title}
+                      className="product-images"
+                    />
+                  </div>
+                  <div className="product-infos">
+                    <h3 className="product-titles">{product.title}</h3>
+                    <p className="product-prices">
+                      Prix: {product.price.toLocaleString()} FCFA
+                    </p>
+                    {product.discount > 0 ? (
+                      <span className="discount-badges">
+                        -{product.discount}%
+                      </span>
+                    ) : (
+                      <span className="no-discounts">Aucune promotion</span>
+                    )}
+                    <p className="final-prices">
+                      Prix Final:{' '}
+                      {(
+                        product.price -
+                        (product.price * product.discount) / 100
+                      ).toFixed(2)}{' '}
+                      FCFA
+                    </p>
+                  </div>
                 </div>
-                <div className="product-infos">
-                  <h3 className="product-titles">{product.title}</h3>
-                  <p className="product-prices">
-                    Prix: {product.price.toLocaleString()} FCFA
-                  </p>
-                  {product.discount && product.discount > 0 ? (
-                    <span className="discount-badges">
-                      -{product.discount}%
-                    </span>
-                  ) : (
-                    <span className="no-discounts">Aucune promotion</span>
-                  )}
-                  <p className="final-prices">
-                    Prix Final:{' '}
-                    {(
-                      product.price -
-                      (product.price * product.discount) / 100
-                    ).toFixed(2)}{' '}
-                    FCFA
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Flèche droite */}
+            <FaChevronRight
+              className="scroll-arrow right-arrows"
+              onClick={() => scroll(category, 'right')}
+            />
           </div>
-
-          {/* Flèche droite */}
-          <FaChevronRight
-            className="scrolls-arrow rights-arrow"
-            onClick={() => scroll(category, 'right')}
-          />
-        </div>
-      ))}
+        ))
+      ) : (
+        <p>Aucun produit disponible.</p>
+      )}
     </div>
   );
 };
 
 export default AdminProduct;
+
 
 
 

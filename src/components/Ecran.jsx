@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
-import AdminAdForm from './AdminAdForm';
-import ManageBanners from './ManageBanners';
-import AddRestaurant from '../pages/adminMenu/AddRestaurant';
-import AddService from '../pages/adminMenu/AddService';
-import AdminOrders from '../pages/orders/AdminOrders';
-import ProductManagement from '../pages/admin/AdminProduct';
-import AdminShippingSettings from '../pages/admin/AdminShippingSettings';
+// import AdminAdForm from './AdminAdForm';
+// import ManageBanners from './ManageBanners';
+// import AddRestaurant from '../pages/adminMenu/AddRestaurant';
+// import AddService from '../pages/adminMenu/AddService';
+// import AdminOrders from '../pages/orders/AdminOrders';
+// import ProductManagement from '../pages/admin/AdminProduct';
+// import AdminShippingSettings from '../pages/admin/AdminShippingSettings';
 import AnalyticsPage from '../pages/admin/AdminAnalytics/Analytics';
 import AddProductPage from './AddProductPage';
 
@@ -38,7 +38,7 @@ const Ecran = () => {
           {selectedMenu === 'analytics' && <AnalyticsPage />}
           {selectedMenu === 'add-product' && <AddProductPage />}
           {selectedMenu === 'order-history' && <h2>en cours de traitement ...</h2>}
-          {selectedMenu === 'products' && <ProductManagement />}
+          {selectedMenu === 'products' && <h2>en cours de traitement ...</h2>}
           {selectedMenu === 'categories' && <h2>en cours de traitement ...</h2>}
           {selectedMenu === 'calendar' && <h2>en cours de traitement ...</h2>}
           {selectedMenu === 'tables' && <h2>en cours de traitement ...</h2>}

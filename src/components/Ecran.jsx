@@ -8,7 +8,7 @@ import Dashboard from './Dashboard';
 // import AdminOrders from '../pages/orders/AdminOrders';
 // import ProductManagement from '../pages/admin/AdminProduct';
 // import AdminShippingSettings from '../pages/admin/AdminShippingSettings';
-import AnalyticsPage from '../pages/admin/AdminAnalytics/Analytics';
+// import AnalyticsPage from '../pages/admin/AdminAnalytics/Analytics';
 import AddProductPage from './AddProductPage';
 
 const Ecran = () => {
@@ -35,7 +35,7 @@ const Ecran = () => {
 
         {/* Rendu conditionnel basé sur le menu sélectionné */}
         <div className="p-4">
-          {selectedMenu === 'analytics' && <AnalyticsPage />}
+          {selectedMenu === 'analytics' && <h2>en cours de traitement ...</h2>}
           {selectedMenu === 'add-product' && <AddProductPage />}
           {selectedMenu === 'order-history' && <h2>en cours de traitement ...</h2>}
           {selectedMenu === 'products' && <h2>en cours de traitement ...</h2>}

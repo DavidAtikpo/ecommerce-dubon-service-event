@@ -78,15 +78,13 @@ const AdminProduct = () => {
                   onClick={() => handleProductClick(product._id)}
                 >
                   <div className="product-image-containers">
-                    <img
-                      src={
-                        product.images.length > 0
-                          ? product.images[0]
-                          : '/default-image.jpg'
-                      }
-                      alt={product.title}
-                      className="product-images"
-                    />
+                  <img
+  src={product.images.length > 0 ? product.images[0] : '/default-image.jpg'}
+  alt={product.title}
+  className="product-images"
+  onError={(e) => { e.target.src = '/default-image.jpg'; }}
+/>
+
                   </div>
                   <div className="product-infos">
                     <h3 className="product-titles">{product.title}</h3>

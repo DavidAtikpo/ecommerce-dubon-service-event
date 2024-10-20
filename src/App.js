@@ -29,12 +29,12 @@ import LanguageSelector from './components/topbar/LanguageSelector';
 import Stats from './components/Stats';
 import AdminProduct from './pages/admin/AdminProduct'
 import AddProductPage from './components/AddProductPage';
-import Ecran from './components/Ecran'
-import EventManagement from './pages/admin/Evenement/EventManagement';
-import TrainingManagement from './pages/admin/Formation/TrainingManagement'
-import LivreurManagement from './pages/admin/Livreur/LivreurManagement';
+// import Ecran from './components/Ecran'
+// import EventManagement from './pages/admin/Evenement/EventManagement';
+// import TrainingManagement from './pages/admin/Formation/TrainingManagement'
+// import LivreurManagement from './pages/admin/Livreur/LivreurManagement';
 import OrderManagement from './pages/admin/dashboard/OrderManegement';
-import VendeurDashboard from './pages/vendeurs/vendeurDashboard';
+// import VendeurDashboard from './pages/vendeurs/vendeurDashboard';
 import AjouterProduit from './pages/vendeurs/AjouterProduit';
 import MesProduits from './pages/vendeurs/MesProduits';
 import MesCommandes from './pages/vendeurs/Mescommandes';

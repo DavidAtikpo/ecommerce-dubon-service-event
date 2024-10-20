@@ -53,7 +53,7 @@ function App() {
         <ErrorBoundary>
         <Routes>
         <Route path="/" element={<Home/>}/>
-        {/* <Route path="/vendeur/dashboard" element={<VendeurDashboard/>} /> */}
+        <Route path="/vendeur/dashboard" element={<VendeurDashboard/>} />
         <Route path="/vendeur/produits/ajouter" element={<AjouterProduit/>} />
         <Route path="/vendeur/produits" element={<MesProduits/>} />
         <Route path="/vendeur/commandes" element={<MesCommandes/>} />

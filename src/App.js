@@ -65,7 +65,7 @@ function App() {
         {/* <Route path='/page-accueil-admin' element ={<Ecran/>}/> */}
         {/* <Route path='/evenement' element ={<EventManagement/>}/> */}
         {/* <Route path='/formation' element ={<TrainingManagement/>}/> */}
-        {/* <Route path='/livreur' element ={<LivreurManagement/>}/> */}
+        <Route path='/livreur' element ={<LivreurManagement/>}/>
 
         <Route path='/add-produits' element ={<AddProductPage/>}/>
         <Route path='/commande' element ={<OrderManagement/>}/>

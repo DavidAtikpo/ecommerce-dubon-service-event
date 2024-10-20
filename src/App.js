@@ -62,7 +62,7 @@ function App() {
         <Route path='/language' element = {<LanguageSelector/> }/>
         <Route path='/stats' element ={<Stats/>}/>
         <Route path='/produits' element ={<AdminProduct/>}/>
-        <Route path='/page-accueil-admin' element ={<Ecran/>}/>
+        {/* <Route path='/page-accueil-admin' element ={<Ecran/>}/> */}
         {/* <Route path='/evenement' element ={<EventManagement/>}/> */}
         {/* <Route path='/formation' element ={<TrainingManagement/>}/> */}
         {/* <Route path='/livreur' element ={<LivreurManagement/>}/> */}

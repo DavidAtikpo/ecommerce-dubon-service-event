@@ -53,7 +53,7 @@ function App() {
         <ErrorBoundary>
         <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/vendeur/dashboard" element={<VendeurDashboard/>} />
+        {/* <Route path="/vendeur/dashboard" element={<VendeurDashboard/>} /> */}
         <Route path="/vendeur/produits/ajouter" element={<AjouterProduit/>} />
         <Route path="/vendeur/produits" element={<MesProduits/>} />
         <Route path="/vendeur/commandes" element={<MesCommandes/>} />
@@ -63,9 +63,9 @@ function App() {
         <Route path='/stats' element ={<Stats/>}/>
         <Route path='/produits' element ={<AdminProduct/>}/>
         <Route path='/page-accueil-admin' element ={<Ecran/>}/>
-        <Route path='/evenement' element ={<EventManagement/>}/>
-        <Route path='/formation' element ={<TrainingManagement/>}/>
-        <Route path='/livreur' element ={<LivreurManagement/>}/>
+        {/* <Route path='/evenement' element ={<EventManagement/>}/> */}
+        {/* <Route path='/formation' element ={<TrainingManagement/>}/> */}
+        {/* <Route path='/livreur' element ={<LivreurManagement/>}/> */}
 
         <Route path='/add-produits' element ={<AddProductPage/>}/>
         <Route path='/commande' element ={<OrderManagement/>}/>

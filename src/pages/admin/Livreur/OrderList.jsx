@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Spinner, Table, Badge } from 'react-bootstrap';
 import axios from 'axios';
-import { API_URL } from '../../config';
+import { API_URL } from '../../../config';
 
 const OrderList = () => {
   const [orders, setOrders] = useState([]);

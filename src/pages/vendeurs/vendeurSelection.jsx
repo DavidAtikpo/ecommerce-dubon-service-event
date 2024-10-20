@@ -24,9 +24,9 @@ const VendeurSelection = () => {
       <h1>Devenir Vendeur</h1>
       {isVendeur ? (
         <div>
-          <p>Félicitations ! Vous êtes maintenant un vendeur sur la plateforme.</p>
+          <p>Livez les conditions generales , et acceptez pour devenir un vendeur sur la plateforme dubonserviceevent.com</p>
           {/* Tu pourrais rediriger l'utilisateur vers le dashboard vendeur ici */}
-          <a href="/vendeur/dashboard">Accéder à votre tableau de bord</a>
+          <a href="/inscris-vendeur">Cliquez ici pour continuer</a>
         </div>
       ) : (
         <div>

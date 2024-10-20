@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaBell, FaSearch, FaUserCircle } from 'react-icons/fa';
 
-const Header = ({ sidebarToggle, setSidebarToggle }) => {
+const TrainingHeader = ({ sidebarToggle, setSidebarToggle }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
@@ -11,7 +11,7 @@ const Header = ({ sidebarToggle, setSidebarToggle }) => {
       {/* Logo et Toggler Sidebar */}
       <div className="flex items-center">
         <FaBars
-          className="text-white mr-4 cursor-pointer"
+          className="text-blue mr-4 cursor-pointer"
           onClick={() => setSidebarToggle(!sidebarToggle)}
         />
         <span className="text-white font-semibold text-xl">
@@ -71,4 +71,4 @@ const Header = ({ sidebarToggle, setSidebarToggle }) => {
   );
 };
 
-export default Header;
+export default TrainingHeader;

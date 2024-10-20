@@ -1,3 +1,4 @@
+// Sidebar.js
 import React, { useState } from 'react';
 import { 
   FaRegFileAlt, FaPoll, FaRegEnvelope, FaCog, 
@@ -5,7 +6,7 @@ import {
 } from 'react-icons/fa';
 import { MdEvent, MdDashboard, MdExpandLess, MdExpandMore } from 'react-icons/md';
 
-const Sidebar = ({ sidebarToggle, onMenuClick }) => {
+const EventSidebar = ({ sidebarToggle, onMenuClick }) => {
   const [isCatalogueOpen, setIsCatalogueOpen] = useState(false); // État pour le sous-menu Catalogue
 
   const handleMenuClick = (menu) => {
@@ -17,118 +18,93 @@ const Sidebar = ({ sidebarToggle, onMenuClick }) => {
   const toggleCatalogue = () => setIsCatalogueOpen(!isCatalogueOpen); // Bascule le sous-menu Catalogue
 
   return (
-    <div
-      className={`${
-        sidebarToggle ? 'hidden' : 'block'
-      } w-64 bg-blue-800 fixed top-0 left-0 h-full overflow-y-auto px-4 py-2`}
-    >
+    <div className={`${sidebarToggle ? 'hidden' : 'block'} w-64 bg-gray-500 fixed h-full px-4 py-2`}>
       <div className="my-2 mb-4">
-        <h1 className="text-1xl text-white font-bold">Tableau de super Admin</h1>
+        <h1 className="text-1xl text-white font-bold">Tableau Evenement</h1>
       </div>
       <hr />
       <ul className="mt-3 text-white font-bold">
-        <li
+
+        <li 
           className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
           onClick={() => handleMenuClick('analytics')}
         >
-          <MdDashboard className="inline-block w-6 h-6 mr-2 -mt-1" />
-          Dashboard
+          <MdDashboard className="inline-block w-6 h-6 mr-2 -mt-2" />
+          Analytique
         </li>
 
         {/* Catalogue avec sous-menu */}
-        <li
+        <li 
           className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer flex justify-between items-center"
           onClick={toggleCatalogue}
         >
           <span>
-            <FaBoxOpen className="inline-block w-6 h-6 mr-2 -mt-1" />
-            Catalogue
+            <FaBoxOpen className="inline-block w-6 h-6 mr-2 -mt-2" />
+             Evenement
           </span>
           {isCatalogueOpen ? <MdExpandLess /> : <MdExpandMore />}
         </li>
 
         {isCatalogueOpen && (
           <ul className="pl-8">
-            <li
+             <li 
               className="mb-2 hover:bg-blue-400 py-1 rounded cursor-pointer"
               onClick={() => handleMenuClick('add-product')}
             >
-              Ajouter Produits
+               Ajouter des Evenements
             </li>
-            <li
+            <li 
               className="mb-2 hover:bg-blue-400 py-1 rounded cursor-pointer"
               onClick={() => handleMenuClick('products')}
             >
-              Produits
+              Historique
             </li>
-            <li
+            <li 
               className="mb-2 hover:bg-blue-400 py-1 rounded cursor-pointer"
               onClick={() => handleMenuClick('livraison')}
             >
-              Paramètre de livraison
+              Liste
             </li>
-            <li
-              className="mb-2 hover:bg-blue-400 py-1 rounded cursor-pointer"
-              onClick={() => handleMenuClick('order')}
-            >
-              Commandes
-            </li>
+
           </ul>
         )}
 
-        <li
+        {/* <li 
+          className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
+          onClick={() => handleMenuClick('blogs')}
+        >
+          <FaRegFileAlt className="inline-block w-6 h-6 mr-2 -mt-2" />
+          Blogs
+        </li> */}
+
+        {/* <li 
           className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
           onClick={() => handleMenuClick('rapport')}
         >
-          <FaPoll className="inline-block w-6 h-6 mr-2 -mt-1" />
+          <FaPoll className="inline-block w-6 h-6 mr-2 -mt-2" />
           Rapport
-        </li>
+        </li> */}
 
-        <li
+        <li 
           className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
           onClick={() => handleMenuClick('message')}
         >
-          <FaRegEnvelope className="inline-block w-6 h-6 mr-2 -mt-1" />
+          <FaRegEnvelope className="inline-block w-6 h-6 mr-2 -mt-2" />
           Message
         </li>
 
-        <li
+        <li 
           className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
           onClick={() => handleMenuClick('parametres')}
         >
-          <FaCog className="inline-block w-6 h-6 mr-2 -mt-1" />
+          <FaCog className="inline-block w-6 h-6 mr-2 -mt-2" />
           Paramètres
         </li>
-
-        <li
-          className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
-          onClick={() => handleMenuClick('evenement')}
-        >
-          <MdEvent className="inline-block w-6 h-6 mr-2 -mt-1" />
-          Événement
-        </li>
-
-        <li
-          className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
-          onClick={() => handleMenuClick('formation')}
-        >
-          <FaBookOpen className="inline-block w-6 h-6 mr-2 -mt-1" />
-          Formation
-        </li>
-
-        <li
-          className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
-          onClick={() => handleMenuClick('commandes')}
-        >
-          <FaClipboardList className="inline-block w-6 h-6 mr-2 -mt-1" />
-          Commandes
-        </li>
-
-        <li
+        <li 
           className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2 cursor-pointer"
           onClick={() => handleMenuClick('utilisateurs')}
         >
-          <FaUsers className="inline-block w-6 h-6 mr-2 -mt-1" />
+          <FaUsers className="inline-block w-6 h-6 mr-2 -mt-2" />
           Utilisateurs
         </li>
       </ul>
@@ -136,4 +112,4 @@ const Sidebar = ({ sidebarToggle, onMenuClick }) => {
   );
 };
 
-export default Sidebar;
+export default EventSidebar;

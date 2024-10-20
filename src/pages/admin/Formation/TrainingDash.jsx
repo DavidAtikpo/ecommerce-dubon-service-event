@@ -1,10 +1,10 @@
 import React from 'react'
-import LivreurHeader from './LivreurHeader'
+import TrainingHeader from './TrainingHeader'
 
 const Dashboard = ({sidebarToggle, setSidebarToggle}) => {
   return (
     <div className={`${sidebarToggle ? "" : "" } w-full`}>
-        <LivreurHeader
+        <TrainingHeader
         sidebarToggle={sidebarToggle}
         setSidebarToggle={setSidebarToggle}
         />

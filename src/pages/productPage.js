@@ -105,9 +105,9 @@ const ProductDetails = () => {
             />
           </div>
 
-          <div className="buttons">
-            <button onClick={handleAddToCart}>Ajouter au panier</button>
-            <button>Acheter maintenant</button>
+          <div className="bouttons">
+            <button className='ajout-buton' onClick={handleAddToCart}>Ajouter au panier</button>
+            <button className='achete-buton'>Acheter maintenant</button>
           </div>
 
           <div className="whatsapp-contact">

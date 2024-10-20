@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import AdminSidebar from './AdminSidebar'
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import AdminOrdersPage from '../pages/orders/AdminOrders';
 import AnalyticsPage from '../pages/admin/dashboard/Analyties';
-// import ManageBanners from './ManageBanners';
+import AdminMessagesComponent from '../pages/admin/AdminMessage';
+import AdminShippingSettings from '../pages/admin/AdminShippingSettings';
 // import AddRestaurant from '../pages/adminMenu/AddRestaurant';
 // import AddService from '../pages/adminMenu/AddService';
 import AdminOrders from '../pages/orders/AdminOrders';
@@ -13,8 +15,9 @@ import ProductManagement from '../pages/admin/AdminProduct';
 import AddProductPage from './AddProductPage';
 
 const Ecran = () => {
-  const [sidebarToggle, setSidebarToggle] = useState(false); // Gestion du sidebar
+  const [sidebarToggle, setSidebarToggle] = useState(true); // Gestion du sidebar
   const [selectedMenu, setSelectedMenu] = useState('analytics'); // Menu sélectionné
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarToggle(!sidebarToggle); // Fonction pour basculer le sidebar
 
@@ -33,6 +36,9 @@ const Ecran = () => {
           sidebarToggle={sidebarToggle} 
           setSidebarToggle={toggleSidebar} 
         />
+        <AdminSidebar
+        onMenuClick={setSelectedMenu}
+        />
 
         {/* Rendu conditionnel basé sur le menu sélectionné */}
         <div className="p-4">
@@ -41,8 +47,8 @@ const Ecran = () => {
           {selectedMenu === 'order-history' && <AdminOrders />}
           {selectedMenu === 'products' && <ProductManagement />}
           {selectedMenu === 'order' && <AdminOrdersPage />}
-          {selectedMenu === 'calendar' && <h2>en cours de traitement ...</h2>}
-          {selectedMenu === 'tables' && <h2>en cours de traitement ...</h2>}
+          {selectedMenu === 'message' && <AdminMessagesComponent />}
+          {selectedMenu === 'livraison' && <AdminShippingSettings />}
           {selectedMenu === 'ads' && <h2>en cours de traitement ...</h2>}
           {selectedMenu === 'add-restaurant' &&<h2>en cours de traitement ...</h2>}
           {selectedMenu === 'banner' && <h2>en cours de traitement ...</h2>}

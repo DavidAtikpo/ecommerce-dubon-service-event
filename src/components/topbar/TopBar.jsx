@@ -67,7 +67,7 @@ const NavBar = () => {
       {/* Search Bar Section */}
       <div style={styles.searchSection}>
         <FaSearch style={styles.searchIcon} />
-        <input type="text" placeholder="Recherche des produits" style={styles.searchInput} />
+        <input  placeholder="Recherche des produits" style={styles.searchInput} />
       </div>
 
       {/* Right Section (Language, Notifications, Cart, Profile) */}

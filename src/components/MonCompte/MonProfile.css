@@ -1,33 +1,33 @@
-.user-profile-container {
+.user-profile-containe {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
   }
   
-  .user-profile-paper {
+  .user-profile-pape {
     padding: 20px;
   }
   
-  .user-profile-avatar-container {
+  .user-profile-avatar-containe {
     text-align: center;
   }
   
-  .user-profile-avatar {
+  .user-profile-avata {
     width: 150px;
     height: 150px;
     margin: 0 auto;
   }
   
-  .user-profile-favorites-title {
+  .user-profile-favorites-titl {
     margin-top: 20px;
   }
   
-  .user-profile-favorites-list {
+  .user-profile-favorites-liste {
     list-style-type: none;
     padding: 0;
   }
   
-  .user-profile-favorites-list li {
+  .user-profile-favorites-liste li {
     margin-bottom: 8px;
   }
   

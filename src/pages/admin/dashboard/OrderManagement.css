@@ -35,7 +35,7 @@
     background-color: #f9f9f9;
   }
   
-  button {
+  .order-manager {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -45,28 +45,28 @@
     font-size: 14px;
   }
   
-  button:hover {
+  .order-manager:hover {
     background-color: #0056b3;
   }
   
-  button.view-btn {
+  .order-manager.view-btn {
     background-color: #28a745;
     margin-right: 10px;
   }
   
-  button.view-btn:hover {
+  .order-manager.view-btn:hover {
     background-color: #218838;
   }
   
-  button.edit-btn {
+  .order-manager.edit-btn {
     background-color: #ffc107;
   }
   
-  button.edit-btn:hover {
+  .order-manager.edit-btn:hover {
     background-color: #e0a800;
   }
   
-  td button {
+  td .order-manager {
     padding: 5px 10px;
     font-size: 14px;
     border-radius: 4px;

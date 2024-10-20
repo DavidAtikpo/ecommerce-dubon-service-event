@@ -32,23 +32,39 @@ const AdminOrdersPage = () => {
 
   return (
     <div>
-      <h1>Gestion des commandes</h1>
+      <div class="info-message">
+  <strong>Bienvenue sur la page de gestion des commandes !</strong><br />
+  Les commandes s’afficheront ici dès qu’un utilisateur aura passé une commande. 
+  Vous pourrez suivre l’état de chaque commande, contacter les clients, 
+  et gérer les livraisons en temps réel.
+  <br /><br />
+  <strong>Données disponibles :</strong>
+  <ul>
+    <li>Détails du produit commandé (quantité, prix, etc.).</li>
+    <li>Coordonnées de l’utilisateur (nom, adresse, contact).</li>
+    <li>Statut de la commande (en attente, en cours de traitement, livré, annulé).</li>
+    <li>Date et heure de la commande.</li>
+  </ul>
+  <p>Utilisez cette page pour mettre à jour le statut des commandes, contacter les clients 
+  et gérer les livraisons en temps réel.</p>
+</div>
+
       {orders.map(order => (
-        <div key={order._id} className="order-box">
+        <div key={order._id} className="admin-order-box">
           {/* Entête de la commande avec photo de profil */}
-          <div className="order-header" onClick={() => toggleOrderDetails(order._id)}>
+          <div className="admin-order-header" onClick={() => toggleOrderDetails(order._id)}>
             {/* Photo de profil */}
             <img
               src={order.user.name ||defaultProfile } // Remplacer par l'URL par défaut si pas d'image
               alt="Profil utilisateur"
-              className="profile-picture"
+              className="admin-profile-picture"
             />
-            <div className="order-info">
+            <div className="admin-order-info">
               <p><strong>Prix:</strong> {order.totalPrice}</p>
               <p><strong>Articles:</strong> {order.orderItems.length}</p>
               <p><strong>Statut:</strong> {order.isPaid}</p>
             </div>
-            <div className="order-actions">
+            <div className="admin-order-actions">
               {/* <button onClick={() => handleStatusChange(order._id, 'Validée')}>Valider</button> */}
               <button onClick={() => handleStatusChange(order._id, 'Expédiée')}>Expédier</button>
             </div>
@@ -56,7 +72,7 @@ const AdminOrdersPage = () => {
 
           {/* Affichage des détails si la boîte est ouverte */}
           {expandedOrders[order._id] && (
-            <div className="order-details">
+            <div className="admin-order-details">
               <h4>Détails de la commande</h4>
               <table>
                 <thead>

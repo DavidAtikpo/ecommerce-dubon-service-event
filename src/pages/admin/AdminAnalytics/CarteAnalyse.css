@@ -1,4 +1,4 @@
-.order-card {
+.order-analcard {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -11,22 +11,22 @@
     transition: background-color 0.3s ease;
   }
   
-  .order-card:hover {
+  .order-analcard:hover {
     background-color: #007bff; /* Couleur de survol (bleu) */
     color: #fff; /* Texte en blanc lors du survol */
   }
   
-  .order-icon img {
+  .order-icon-anal img {
     width: 50px;
     height: 50px;
   }
   
-  .order-info h2 {
+  .order-info-anal h2 {
     margin: 0;
     font-size: 2rem;
   }
   
-  .order-info p {
+  .order-info-anal p {
     margin: 4px 0;
     font-size: 0.9rem;
   }

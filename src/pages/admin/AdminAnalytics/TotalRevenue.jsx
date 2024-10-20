@@ -10,7 +10,7 @@ const data = [
 
 const TotalRevenue = () => {
   return (
-    <div className="analytics-card">
+    <div className="totalrevenu-card">
       <h2>Total Revenue</h2>
       <BarChart width={300} height={200} data={data}>
         <XAxis dataKey="name" />

@@ -8,7 +8,7 @@
     align-items: center;
   }
   
-  .form-container {
+  .phone-container {
     background-color: rgba(255, 255, 255, 0.9); /* Légèrement transparent */
     /* padding: 30px; */
     border-radius: 10px;
@@ -17,7 +17,7 @@
     width: 100%;
   }
   
-  button {
+  .phone-bouton {
     width: 100%;
   }
   

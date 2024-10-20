@@ -263,9 +263,9 @@ const ProductManagement = () => {
   }
 
   return (
-    <div className="product-page">
-      <div className="product-container">
-        <div className="product-details">
+    <div className="product-manager-page">
+      <div className="product-manager-container">
+        <div className="product-manager-details">
           {isEditing ? (
             
             <>
@@ -297,10 +297,10 @@ const ProductManagement = () => {
                 onChange={handleInputChange}
               />
 
-              <div className="images-section">
+              <div className="images-manager-section">
                 <h3>Images</h3>
                 {updatedProduct.images.map((image, index) => (
-                  <div key={index} className="image-field">
+                  <div key={index} className="image-manager-field">
                     <label>Lien image</label>
                     <input
                       type="text"
@@ -317,7 +317,7 @@ const ProductManagement = () => {
                 </span>
               </div>
 
-              <div className="admin-actions">
+              <div className="admin-manager-actions">
                 <button onClick={handleSaveProduct}>Sauvegarder</button>
                 <button onClick={handleCancelEdit}>Annuler</button>
               </div>
@@ -326,28 +326,28 @@ const ProductManagement = () => {
             <>
               <h1>{product.title}</h1>
               <p>{product.description}</p>
-              <div className="product-price">
+              <div className="product-manager-price">
                 {product.discount ? (
                   <>
-                    <span className="price-discount">{product.finalPrice} FCFA</span>
-                    <span className="price-original">{product.price} FCFA</span>
-                    <span className="price-percentage">-{product.discount}%</span>
+                    <span className="price-manager-discount">{product.finalPrice} FCFA</span>
+                    <span className="price-manager-original">{product.price} FCFA</span>
+                    <span className="price-manager-percentage">-{product.discount}%</span>
                   </>
                 ) : (
-                  <span className="price">{product.price} FCFA</span>
+                  <span className="price-manager">{product.price} FCFA</span>
                 )}
               </div>
 
-              <div className="images-section">
+              <div className="images-manager-section">
                 <h3>Images</h3>
                 {product.images.map((image, index) => (
                   <img key={index} src={image} alt={`Image ${index + 1}`} />
                 ))}
               </div>
 
-              <div className="admin-actions">
-                <button onClick={handleEditProduct}>Modifier</button>
-                <button onClick={handleDeleteProduct}>Supprimer</button>
+              <div className="admin-manager-actions">
+                <button className='edit-manager-product-btn' onClick={handleEditProduct}>Modifier</button>
+                <button className='delete-manager-product-btn' onClick={handleDeleteProduct}>Supprimer</button>
               </div>
             </>
           )}

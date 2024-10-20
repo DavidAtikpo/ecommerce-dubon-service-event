@@ -1,0 +1,53 @@
+.analytics-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .analytics-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .chart-container {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  /* .analytics-info {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin: 50px auto;
+    border-radius: 4px;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1rem;
+  } */
+  
+
+  .analytiecs-info {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border-left: 4px solid #0d47a1;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  

@@ -12,7 +12,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const TopProducts = () => {
   return (
-    <div className="analytics-card">
+    <div className="top-card">
       <h2>Top Products</h2>
       <PieChart width={300} height={200}>
         <Pie

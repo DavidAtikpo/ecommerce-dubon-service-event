@@ -148,21 +148,21 @@ const AccountPage = () => {
   return (
     <div>
     <TopBar/>
-    <div className="account-page">
-      <div className="account-header">
-        <div className="profile-section">
-          <img src="/path/to/default-avatar.png" alt="avatar" className="avatar" />
-          <button className="photo-button">Transférer la photo</button>
+    <div className="accountn-page">
+      <div className="accountn-header">
+        <div className="profilen-section">
+          <img src="/path/to/default-avatar.png" alt="avatar" className="avatarn" />
+          <button className="photosn-button">Transférer la photo</button>
         </div>
-        <div className="account-info">
+        <div className="accountn-info">
           <p><strong>Votre identifiant de membre :</strong> tg29074983370iubp</p>
-          <p><strong>E-mail :</strong> dav***@gmail.com <button className="change-link" onClick={() => handleNavigation('/change-email')}>Changer d’adresse électronique</button></p>
-          <p><strong>Téléphone portable rattaché :</strong> <span className="phone-placeholder" onClick={() => handleNavigation('/add-phone')}>Saisir un numéro de téléphone portable</span></p>
+          <p><strong>E-mail :</strong> dav***@gmail.com <button className="changen-link" onClick={() => handleNavigation('/change-email')}>Changer d’adresse électronique</button></p>
+          <p><strong>Téléphone portable rattaché :</strong> <span className="phonen-placeholder" onClick={() => handleNavigation('/add-phone')}>Saisir un numéro de téléphone portable</span></p>
         </div>
       </div>
 
-      <div className="account-menu">
-        <div className="menu-column">
+      <div className="accountn-menu">
+        <div className="menun-column">
           <h4>Renseignements personnels</h4>
           <ul>
             <li onClick={() => handleNavigation('/profile')}>mon Profil</li>
@@ -175,7 +175,7 @@ const AccountPage = () => {
           </ul>
         </div>
 
-        <div className="menu-column">
+        <div className="menun-column">
           <h4>Compte de Sécurité</h4>
           <ul>
             <li onClick={() => handleNavigation('/email')}>changement D’adresse E-mail</li>
@@ -185,7 +185,7 @@ const AccountPage = () => {
           </ul>
         </div>
 
-        <div className="menu-column">
+        <div className="menun-column">
           <h4>Compte de financement</h4>
           <ul>
             <li onClick={() => handleNavigation('/transaction')}>Mon centre de transactions</li>

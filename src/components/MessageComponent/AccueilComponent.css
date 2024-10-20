@@ -6,7 +6,7 @@
   /* padding: 20px; */
 }
 
-.user-section {
+.users-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,53 +15,53 @@
   border-radius: 8px;
 }
 
-.profile-picture {
+.profiles-picture {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.user-info {
+.users-info {
   flex: 1;
   margin-left: 20px;
 }
 
-.user-info h2 {
+.users-info h2 {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
 }
 
-.user-stats {
+.users-stats {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 
-.stat-item {
+.stats-item {
   text-align: center;
 }
 
-.stat-item h4 {
+.stats-item h4 {
   margin: 0;
   font-size: 20px;
   font-weight: bold;
 }
 
-.stat-item p {
+.stats-item p {
   margin: 0;
   font-size: 12px;
   color: #888;
 }
 
-.market-section {
+.markets-section {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.market-card {
+.markets-card {
   flex: 1;
   background-color: #fff;
   border-radius: 8px;
@@ -70,23 +70,23 @@
   text-align: center;
 }
 
-.market-card:last-child {
+.markets-card:last-child {
   margin-right: 0;
 }
 
-.market-card h3 {
+.markets-card h3 {
   margin: 0 0 10px 0;
   font-size: 18px;
   font-weight: bold;
 }
 
-.market-card p {
+.markets-card p {
   margin: 0 0 20px 0;
   font-size: 14px;
   color: #666;
 }
 
-.market-card button {
+.markets-card .boutons .btt{
   background-color: #0808cd;
   color: #fff;
   border: none;
@@ -95,7 +95,7 @@
   cursor: pointer;
 }
 
-.orders-section {
+.orders-sectiont {
   background-color: #f7f7f7;
   padding: 20px;
   border-radius: 8px;
@@ -109,13 +109,13 @@
   font-weight: bold;
 }
 
-.orders-section p {
+.orders-sectiont p {
   margin: 0 0 20px 0;
   font-size: 14px;
   color: #888;
 }
 
-.orders-section button {
+.orders-sectiont .boutonr {
   background-color: #0808cd;
   color: #fff;
   border: none;
@@ -126,29 +126,29 @@
 
 /* Responsiveness for mobile devices */
 @media (max-width: 768px) {
-  .user-section {
+  .users-section {
     flex-direction: column;
     text-align: center;
   }
 
-  .user-info {
+  .users-info {
     margin-left: 0;
     margin-top: 10px;
   }
 
-  .user-stats {
+  .users-stats {
     flex-direction: column;
   }
 
-  .market-section {
+  .markets-section {
     flex-direction: column;
   }
 
-  .market-card {
+  .markets-card {
     margin-bottom: 20px;
   }
 
-  .orders-section {
+  .orders-sectiont {
     padding: 15px;
   }
 }

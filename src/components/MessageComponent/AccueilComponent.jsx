@@ -30,19 +30,19 @@ const navigate = useNavigate()
   return (
     <div className="accueil-container">
       <div className="user-section">
-        <img src={userData.profilePicture || 'default-profile.png'} alt="Profile" className="profile-picture" />
-        <div className="user-info">
+        <img src={userData.profilePicture || 'default-profile.png'} alt="Profile" className="profiles-picture" />
+        <div className="users-info">
           <h2>{userData.name}</h2>
-          <div className="user-stats">
-            <div className="stat-item">
+          <div className="users-stats">
+            <div className="stats-item">
               <h4>{userData.demandes}</h4>
               <p>Demandes </p>
             </div>
-            <div className="stat-item">
+            <div className="stats-item">
               <h4>{userData.favoris}</h4>
               <p>Favoris</p>
             </div>
-            <div className="stat-item">
+            <div className="stats-item">
               <h4>{userData.coupons}</h4>
               <p>Mes coupons</p>
             </div>
@@ -50,23 +50,23 @@ const navigate = useNavigate()
         </div>
       </div>
 
-      <div className="market-section">
-        <div className="market-card">
+      <div className="markets-section">
+        <div className="markets-card">
           <h3>Les tendances du marché sur DubonServiceEvent.com</h3>
           <p>Découvrez de nouvelles opportunités d'affaires</p>
-          <button>En savoir plus</button>
+          <button className='boutons'>En savoir plus</button>
         </div>
-        <div className="market-card">
+        <div className="markets-card">
           <h3>Vérifier les informations commerciales</h3>
           <p>Obtenez la vérification du statut d'exonération fiscale</p>
-          <button>Vérifiez</button>
+          <button className='btt'>Vérifiez</button>
         </div>
       </div>
 
-      <div className="orders-section">
+      <div className="orders-sectiont">
         <h3>Mes Commandes</h3>
         <p>Pas encore de commandes...</p>
-        <button onClick={()=>navigate('/')}>Faire des commandes</button>
+        <button className='boutonr' onClick={()=>navigate('/')}>Faire des commandes</button>
       </div>
     </div>
   );

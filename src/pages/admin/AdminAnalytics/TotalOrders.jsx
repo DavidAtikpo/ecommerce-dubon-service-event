@@ -10,7 +10,7 @@ const data = [
 
 const TotalOrders = () => {
   return (
-    <div className="analytics-card">
+    <div className="total-card">
       <h2>Total Commande </h2>
       <LineChart width={300} height={200} data={data}>
         <XAxis dataKey="name" />

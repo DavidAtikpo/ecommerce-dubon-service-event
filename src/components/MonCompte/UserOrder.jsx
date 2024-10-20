@@ -33,13 +33,13 @@ const UserOrders = () => {
   }
 
   return (
-    <div className="user-orders-container">
+    <div className="user-orderss-container">
       <Typography variant="h4" className="user-orders-title">
         Mes Commandes
       </Typography>
 
       {orders.length > 0 ? (
-        <TableContainer component={Paper} className="user-orders-table">
+        <TableContainer component={Paper} className="user-orderss-table">
           <Table>
             <TableHead>
               <TableRow>

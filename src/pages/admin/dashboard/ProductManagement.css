@@ -14,7 +14,7 @@
     color: #333;
   }
   
-  button {
+  .product-manager {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -24,7 +24,7 @@
     margin-bottom: 20px;
   }
   
-  button:hover {
+  .product-manager:hover {
     background-color: #0056b3;
   }
   
@@ -49,24 +49,24 @@
     background-color: #f9f9f9;
   }
   
-  button.edit-btn {
+  .product-manager.edit-btn {
     background-color: #28a745;
     margin-right: 10px;
   }
   
-  button.edit-btn:hover {
+  .product-manager.edit-btn:hover {
     background-color: #218838;
   }
   
-  button.delete-btn {
+  .product-manager.delete-btn {
     background-color: #dc3545;
   }
   
-  button.delete-btn:hover {
+  .product-manager.delete-btn:hover {
     background-color: #c82333;
   }
   
-  td button {
+  td .product-manager {
     padding: 5px 10px;
     font-size: 14px;
     border-radius: 4px;

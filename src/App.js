@@ -2,14 +2,9 @@ import React from 'react';
 import './App.css'
 import ProductPage from './pages/productPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-
 import Home from './pages/Home';
-import AdminPage from './pages/admin/AdminPage';
-// import Products from './pages/Products';
 import LoginPage from './pages/auth/LoginPage';
 import Cart from './pages/Cart';
-// import UserDashboardLayout from './pages/user/userDashboardLayout';
 import RegisterPage from './pages/auth/RegisterPage';
 import ForgotPasswordPage from './pages/auth/ForgotPassword';
 import ResetPasswordPage from './pages/auth/resetPasswordPage';
@@ -35,26 +30,22 @@ import Stats from './components/Stats';
 import AdminProduct from './pages/admin/AdminProduct'
 import AddProductPage from './components/AddProductPage';
 import Ecran from './components/Ecran'
-
-
-// import MessagePage from './components/MessageComponent/MessagePage';
-// import RestaurantManagement from './pages/admin/Restaurant/RestaurantManagement';
-// import EventDashboard from './pages/admin/Evenement/EventDashboard';
 import VendeurDashboard from './pages/vendeurs/vendeurDashboard';
 import AjouterProduit from './pages/vendeurs/AjouterProduit';
 import MesProduits from './pages/vendeurs/MesProduits';
 import MesCommandes from './pages/vendeurs/Mescommandes';
 import Checkout from './components/topbar/checkout';
 import ProfilePhotoComponent from './components/MonCompte/ProfilePhotoComponent';
-// import Dashboard from './pages/admin/dashboard/Dashboard'
+
+
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* ChatBox will be available across all routes */}
+       
         <ChatBox />
 
-        {/* Define the Routes for different pages */}
+        
         <ErrorBoundary>
         <Routes>
         <Route path="/" element={<Home/>}/>
@@ -67,11 +58,9 @@ function App() {
         <Route path='/language' element = {<LanguageSelector/> }/>
         <Route path='/stats' element ={<Stats/>}/>
         <Route path='/produits' element ={<AdminProduct/>}/>
-        <Route path='/admin' element ={<AdminPage/>}/>
         <Route path='/page-accueil-admin' element ={<Ecran/>}/>
 
         <Route path='/add-produits' element ={<AddProductPage/>}/>
-        {/* <Route path='/admin' element ={<Dashboard/>}/> */}
         {/* <Route path='/evenement' element ={<EventDashboard/>}/> */}
         {/* <Route path='/restaurant' element ={<RestaurantManagement/>}/> */}
 

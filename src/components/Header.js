@@ -7,14 +7,14 @@ const Header = ({ sidebarToggle, setSidebarToggle }) => {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <nav className="bg-gray-800 px-4 py-3 flex justify-between items-center">
+    <nav className="bg-gray-500 px-4 py-3 flex justify-between items-center">
       {/* Logo et Toggler Sidebar */}
       <div className="flex items-center">
         <FaBars
-          className="text-white mr-4 cursor-pointer"
+          className="text-blue mr-4 cursor-pointer"
           onClick={() => setSidebarToggle(!sidebarToggle)}
         />
-        <span className="text-white font-semibold text-xl">
+        <span className="text-blue font-semibold text-xl">
           Dubon Service Event
         </span>
       </div>

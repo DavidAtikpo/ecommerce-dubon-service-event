@@ -38,7 +38,7 @@ const ProductManagement = () => {
   };
 
   return (
-    <div className="product-management">
+    <div className="product-managements">
       <h2>Gestion des Produits</h2>
       <button>Ajouter un Produit</button>
       <table>
@@ -58,8 +58,8 @@ const ProductManagement = () => {
                 <td>{product.price} €</td>
                 <td>{product.stock}</td>
                 <td>
-                  <button onClick={() => handleEdit(product.id)}>Modifier</button>
-                  <button onClick={() => handleDelete(product.id)}>Supprimer</button>
+                  <button className='product-manager' onClick={() => handleEdit(product.id)}>Modifier</button>
+                  <button className='product-manager' onClick={() => handleDelete(product.id)}>Supprimer</button>
                 </td>
               </tr>
             ))

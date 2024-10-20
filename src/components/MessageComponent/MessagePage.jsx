@@ -14,7 +14,7 @@ import MesListesComponent from './MesListesComponent';
 import ServicesComponent from './ServicesComponent';
 import VendeurSelection from '../../pages/vendeurs/vendeurSelection';
 import { useNavigate } from 'react-router-dom';
-import './MessagePage.css';
+// import './MessagePage.css';
 
 const MessagePage = () => {
   const [selectedMenu, setSelectedMenu] = useState('accueil');

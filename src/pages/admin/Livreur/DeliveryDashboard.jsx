@@ -12,10 +12,10 @@ const DeliveryDashboard = () => {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="admin-dashboard">
+    <div className="livreu-dashboard">
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Container className={`dashboard-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+      <Container className={`livreur-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Row className="mt-4">
           <Col>
             <h2>Commandes à livrer</h2>

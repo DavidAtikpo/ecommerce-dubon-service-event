@@ -25,12 +25,12 @@ const SearchBar = () => {
   };
 
   return (
-  <div className="search-bar">
-    <label className="search-label"></label>
+  <div className="search-bare">
+    <label className="search-labele"></label>
     <input
       type="text"
       placeholder="Trouvez des produits ici"
-      className="search-input"
+      className="search-inpute"
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
       // Ajout du gestionnaire d'événements pour les touches

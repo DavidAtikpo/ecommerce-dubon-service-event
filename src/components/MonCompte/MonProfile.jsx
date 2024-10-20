@@ -35,14 +35,14 @@ const UserProfile = () => {
   const { firstName, lastName, birthDate, email, phoneNumber, favorites, profileImage } = userData;
 
   return (
-    <div className="user-profile-container">
-      <Paper elevation={3} className="user-profile-paper">
+    <div className="user-profile-containe">
+      <Paper elevation={3} className="user-profile-pape">
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={4} className="user-profile-avatar-container">
+          <Grid item xs={12} sm={4} className="user-profile-avatar-containe">
             <Avatar
               alt={`${firstName} ${lastName}`}
               src={profileImage || '/default-avatar.png'}
-              className="user-profile-avatar"
+              className="user-profile-avata"
             />
           </Grid>
           <Grid item xs={12} sm={8}>
@@ -57,11 +57,11 @@ const UserProfile = () => {
           </Grid>
         </Grid>
 
-        <Typography variant="h5" className="user-profile-favorites-title">
+        <Typography variant="h5" className="user-profile-favorites-titl">
           Mes favoris
         </Typography>
         {favorites.length > 0 ? (
-          <ul className="user-profile-favorites-list">
+          <ul className="user-profile-favorites-liste">
             {favorites.map((favorite, index) => (
               <li key={index}>{favorite}</li>
             ))}

@@ -34,7 +34,7 @@ const PasswordUpdateComponent = () => {
 
   return (
     <div className="password-update-page">
-      <div className="form-container">
+      <div className="password-container">
         <Stepper activeStep={step}>
           <Step>
             <StepLabel>Modifier le mot de passe</StepLabel>
@@ -85,7 +85,7 @@ const PasswordUpdateComponent = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={handlePasswordChange}>
+                <Button className='password-bouton' variant="contained" color="primary" onClick={handlePasswordChange}>
                   Modifier le mot de passe
                 </Button>
               </Grid>

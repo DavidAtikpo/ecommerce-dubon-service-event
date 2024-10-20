@@ -51,8 +51,8 @@ const OrderManagement = () => {
                 <td>{order.total} €</td>
                 <td>{order.status}</td>
                 <td>
-                  <button onClick={() => handleView(order.id)}>Voir</button>
-                  <button onClick={() => handleEdit(order.id)}>Modifier</button>
+                  <button className='order-manager' onClick={() => handleView(order.id)}>Voir</button>
+                  <button className='order-manager' onClick={() => handleEdit(order.id)}>Modifier</button>
                 </td>
               </tr>
             ))

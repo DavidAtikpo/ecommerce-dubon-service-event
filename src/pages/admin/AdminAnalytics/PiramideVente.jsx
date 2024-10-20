@@ -20,7 +20,7 @@ const SalesComponent = () => {
   }, []);
 
   return (
-    <div className="analytics-card">
+    <div className="piramid-card">
       <h2>Sales</h2>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart layout="vertical" data={salesData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>

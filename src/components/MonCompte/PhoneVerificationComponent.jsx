@@ -75,7 +75,7 @@ const PhoneUpdateComponent = () => {
 
   return (
     <div className="phone-update-page">
-      <div className="form-container">
+      <div className="phone-container">
         <Stepper activeStep={step}>
           <Step>
             <StepLabel>Vérifier le numéro</StepLabel>
@@ -150,7 +150,7 @@ const PhoneUpdateComponent = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={handlePhoneChange}>
+                <Button className='phone-bouton' variant="contained" color="primary" onClick={handlePhoneChange}>
                   Soumettre le nouveau numéro
                 </Button>
               </Grid>

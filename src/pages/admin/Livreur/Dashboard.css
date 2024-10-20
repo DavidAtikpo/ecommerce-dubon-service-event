@@ -1,5 +1,5 @@
 /* Dashboard.css */
-.admin-dashboard {
+.livreur-dashboard {
     display: flex;
     height: 100vh;
   }
@@ -19,7 +19,7 @@
     transform: translateX(0);
   }
   
-  .dashboard-content {
+  .livreur-content {
     flex: 1;
     padding: 20px;
   }

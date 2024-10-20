@@ -18,7 +18,7 @@ const Sidebar = ({ sidebarToggle, onMenuClick }) => {
   const toggleCatalogue = () => setIsCatalogueOpen(!isCatalogueOpen); // Bascule le sous-menu Catalogue
 
   return (
-    <div className={`${sidebarToggle ? 'hidden' : 'block'} w-64 bg-gray-800 fixed h-full px-4 py-2`}>
+    <div className={`${sidebarToggle ? 'hidden' : 'block'} w-64 bg-gray-500 fixed h-full px-4 py-2`}>
       <div className="my-2 mb-4">
         <h1 className="text-2xl text-white font-bold">Admin Dashboard</h1>
       </div>
@@ -67,7 +67,7 @@ const Sidebar = ({ sidebarToggle, onMenuClick }) => {
             </li>
             <li 
               className="mb-2 hover:bg-blue-400 py-1 rounded cursor-pointer"
-              onClick={() => handleMenuClick('order-history')}
+              onClick={() => handleMenuClick('order')}
             >
               Commandes
             </li>

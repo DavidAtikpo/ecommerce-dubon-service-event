@@ -1,15 +1,17 @@
 .bannert-container {
-    background-color: #0808cd; /* Bleu dodger */
+    background-color: #e7e3e3; /* Bleu dodger */
     padding: 20px;
+    border-left: 4px solid #1e40af;
+    border-bottom: 2px solid #1e40af;
     overflow: hidden;
     position: relative;
     width: 100%;
-    height: 25px; /* Ajuster la hauteur si nécessaire */
+    height: 20px; /* Ajuster la hauteur si nécessaire */
   }
   
   .bannert-text {
-    color: white;
-    font-size: 1.5rem;
+    color: #1e40af;
+    font-size: 1rem;
     font-weight: bold;
     white-space: nowrap;
     position: absolute;

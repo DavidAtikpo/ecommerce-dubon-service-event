@@ -38,9 +38,9 @@ const AdBanner = () => {
 
   return (
     <div className="bannert-container">
-      <div ref={bannerRef} className="bannert-text">ce site sera bien disponible ! dubonservicesevent.com est votre plateforme idéale pour acheter des produits frais et congelés, profiter d'événements exclusifs et accéder à divers services</div>
+      <div ref={bannerRef} className="bannert-text">Ce site sera bientot disponible ! dubonservicesevent.com est votre plateforme idéale pour acheter des produits frais et congelés, profiter d'événements exclusifs et accéder à divers services</div>
     </div>
   );
-};
+}; 
 
 export default AdBanner;

@@ -50,6 +50,8 @@ const ProductDetails = () => {
     alert(`${product.title} ajouté au panier!`);
   };
 
+  const shareUrl = `${window.location.origin}/productPage/${productId}`;
+
   if (isLoading) return <div>Chargement...</div>;
   if (!product) return <div>Produit introuvable.</div>;
 
@@ -58,12 +60,20 @@ const ProductDetails = () => {
       <TopBar />
       <div className="product-container">
         {/* Boîte pour les images */}
+        
         <div className="product-images">
-          <img 
-            src={product.images[selectedImageIndex] || logo} 
-            alt={product.title} 
-            className="main-image" 
-          />
+         {product.images[selectedImageIndex].endsWith('.mp4') ? (
+            <video controls className="main-image">
+              <source src={product.images[selectedImageIndex]} type="video/mp4" />
+              Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+          ) : (
+            <img 
+              src={product.images[selectedImageIndex] || logo} 
+              alt={product.title} 
+              className="main-image" 
+            />
+          )}
           <div className="thumbnails">
             {product.images.map((img, index) => (
               <img 
@@ -79,9 +89,12 @@ const ProductDetails = () => {
 
         {/* Boîte pour les détails du produit */}
         <div className="product-info-box">
+          
+         <div className='product-description'>
           <h1>{product.title}</h1>
           <p className="description">{product.description}</p>
-          <ProductRating productId={product._id} />
+          
+          {/* <ProductRating productId={product._id} /> */}
 
           <div className="price-info">
             {product.discount > 0 ? (
@@ -94,6 +107,7 @@ const ProductDetails = () => {
               <span className="price">{product.price} FCFA</span>
             )}
           </div>
+          </div>
 
           <div className="quantity-selector">
             <label>Quantité:</label>
@@ -104,22 +118,33 @@ const ProductDetails = () => {
               onChange={(e) => setQuantity(Number(e.target.value))} 
             />
           </div>
-
-          <div className="bouttons">
             <button className='ajout-buton' onClick={handleAddToCart}>Ajouter au panier</button>
-            <button className='achete-buton'>Acheter maintenant</button>
-          </div>
-
-          <div className="whatsapp-contact">
-            <a href="https://wa.me/229XXXXXXXX" target="_blank" rel="noopener noreferrer">
+            <div className="whatsapp-contact">
+            <a href="https://wa.me/22952423128" target="_blank" rel="noopener noreferrer">
               <FaWhatsapp className="whatsapp-icon" /> Contacter le livreur
             </a>
           </div>
-        </div>
-      </div>
+          <div className="social-share">
+            <h4>Partagez</h4>
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" rel="noopener noreferrer">
+              <FaFacebookF />
+            </a>
+            <a className="whatsapp-icon" href={`https://wa.me/?text=${shareUrl}`} target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp />
+            </a>
+            </div>
+            {/* <button className='achete-buton'>Acheter maintenant</button> */}
+          </div>
 
-      {/* Avis des utilisateurs */}
-      <div className="reviews-box">
+          
+        
+         
+        </div>
+        <div className='meta-description'>
+        <h1>{product.meta.title}</h1>
+        <p className="description">{product.meta.description}</p>
+
+        <div className="reviews-box">
         <h2>Avis des utilisateurs</h2>
         {/* Exemple d'avis utilisateur */}
         <div className="user-review">
@@ -127,15 +152,18 @@ const ProductDetails = () => {
           <p>Super produit, je recommande vivement !</p>
         </div>
       </div>
+        </div>
+      
 
       {/* Autres produits de la même catégorie */}
       <div className="related-products">
-        <h2>Autres produits de la même catégorie</h2>
+          <h2>Autres produits de la même catégorie</h2>
         <div className="related-products-grid">
           {relatedProducts.map(prod => (
             <div key={prod._id} className="related-product-card">
               <img src={prod.images[0]} alt={prod.title} />
               <p>{prod.title}</p>
+              <h3>{prod.finalPrice}</h3>
             </div>
           ))}
         </div>

@@ -26,8 +26,8 @@ const UserDashboardLayout = ({ children }) => {
     
       {/* <CategoryNavigationBar /> */}
       <SalesPage/>
-      <PromoBanner />
-      <PromoPopup />
+      {/* <PromoBanner /> */}
+      {/* <PromoPopup /> */}
       {/* Structure du dashboard */}
       <div className="dashboard-content">
         {/* Contenu principal */}

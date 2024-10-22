@@ -130,6 +130,7 @@ const handleCheckout = () => {
       <TopBar cartItemsLength={cartItems.length} />
 
       <div className="cart-container">
+       <div className='cart-product'>
         <div className="cart-left">
           {cartItems.length === 0 ? (
             <div className="empty-cart">
@@ -182,7 +183,7 @@ const handleCheckout = () => {
             </div>
           )}
         </div>
-      </div>
+     
 
       <div className="cart-right">
         <h3>Récapitulatif du Panier</h3>
@@ -192,7 +193,8 @@ const handleCheckout = () => {
           Passer à la commande (FCFA {calculateTotal(cartItems).toLocaleString()})
         </button>
       </div>
-
+      </div>
+      </div>
       <div className="recently-viewed">
         <h3>Produits consultés récemment</h3>
         <div className="recently-viewed-items">

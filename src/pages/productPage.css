@@ -1,7 +1,9 @@
 .product-page {
-width: 100%;
+  width: 100%;
+  /* padding: 20px; */
 }
 
+/* Conteneur principal des produits */
 .product-container {
   display: flex;
   gap: 20px;
@@ -12,38 +14,51 @@ width: 100%;
   background-color: rgb(233, 233, 233);
 }
 
+/* Section des images */
 .product-images {
   flex: 1;
   max-width: 30%;
 }
-.product-description{
+
+/* Description du produit */
+.product-description {
   flex: 1;
-  width: 40;
+  width: 100%;
 }
+
 .main-image {
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
-.meta-description{
+
+/* Meta description */
+.meta-description {
   width: 100%;
   background-color: white;
   border-left: 8px solid #1e40af;
   padding: 20px;
   margin: 20px;
 }
-.social-share{
+
+/* Partage sur les réseaux sociaux */
+.social-share {
   display: flex;
   gap: 15px;
   margin-left: 40px;
 }
-.quantity-selector{
-width: 80px;
+
+/* Sélecteur de quantité */
+.quantity-selector {
+  width: 80px;
 }
+
+/* Miniatures des images */
 .thumbnails {
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  overflow-x: auto;
 }
 
 .thumbnail {
@@ -52,18 +67,28 @@ width: 80px;
   border-radius: 4px;
   cursor: pointer;
   opacity: 0.7;
+  transition: opacity 0.3s, transform 0.2s;
 }
-.ajout-buton{
-  
-  width: 200px;
-  margin-left: 100px;
-  margin-top: -75px;
-}
+
 .thumbnail.active {
   opacity: 1;
   border: 2px solid #1976d2;
+  transform: scale(1.1);
 }
 
+/* Bouton Ajouter au panier */
+.ajout-buton {
+  width: 200px;
+  margin-left: 100px;
+  margin-top: -75px;
+  transition: background-color 0.3s;
+}
+
+.ajout-buton:hover {
+  background-color: #d6d6f5;
+}
+
+/* Informations du produit */
 .product-info-box {
   flex: 1;
   display: flex;
@@ -71,6 +96,7 @@ width: 80px;
   gap: 15px;
 }
 
+/* Informations de prix */
 .price-info {
   display: flex;
   align-items: baseline;
@@ -87,19 +113,14 @@ width: 80px;
   text-decoration: line-through;
 }
 
-.ajout-buton.whatsapp-contact {
-  margin-top: 10px;
-  
-  /* display: flex; */
-}
-
+/* Icône WhatsApp */
 .whatsapp-icon {
   margin-right: 5px;
   color: #25D366;
-  font-size: 2rem; /* Ajustez la taille ici */
+  font-size: 2rem;
 }
 
-
+/* Section des avis */
 .reviews-box {
   margin-top: 30px;
 }
@@ -114,25 +135,103 @@ width: 80px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
+/* Produits associés */
 .related-products-grid {
-  display: flex;
-  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  background-color: white;
   width: 100%;
   padding: 20px;
-  gap: 20px;
-  /* margin-top: 20px; */
 }
-.related-products h3{
+
+.related-products h3 {
   color: red;
 }
-.related-products h2{
+
+.related-products h2 {
   background-color: #1e40af;
-  color: #fff;
+  color: white;
   margin-bottom: 0;
 }
+
 .related-product-card {
   width: 150px;
   min-height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.related-product-card:hover {
+  transform: scale(1.05);
+}
+
+/* --- Responsive Design --- */
+
+/* Tablette */
+@media (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .product-images {
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .ajout-buton {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .related-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .thumbnails {
+    gap: 5px;
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .product-images {
+    max-width: 100%;
+  }
+
+  .product-info-box {
+    width: 100%;
+    padding: 0;
+  }
+
+  .ajout-buton {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .related-products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-share {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .main-image {
+    max-height: 300px;
+    object-fit: contain;
+  }
 }

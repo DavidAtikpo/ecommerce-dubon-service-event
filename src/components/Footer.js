@@ -1,96 +1,103 @@
 import React from 'react';
-import './Footer.css'; // Import the CSS file for styling
+import './Footer.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import { Link } from 'react-router-dom'; // Utilisation de Link pour la navigation interne
 
 const Footer = () => {
+  const handleNewsletterSignup = () => {
+    alert("Merci pour votre inscription !");
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
           <h4>BESOIN D'AIDE?</h4>
           <ul>
-            <li>Ecrivez-nous</li>
-            <li>Centre d'aide</li>
-            <li>Contactez-nous</li>
+            <li><Link to="/contact">Écrivez-nous</Link></li>
+            <li><Link to="/help-center">Centre d'aide</Link></li>
+            <li><Link to="/contact">Contactez-nous</Link></li>
+            <li><Link to="/faq">FAQ</Link></li>
           </ul>
         </div>
 
         <div className="footer-section">
-          <h4>LIENS</h4>
+          <h4>LIENS UTILES</h4>
           <ul>
-            <li>DUBON SERVICE</li>
+            <li><Link to="/">DUBON SERVICE</Link></li>
+            <li><Link to="/services">Nos services</Link></li>
+            <li><Link to="/events">Événements</Link></li>
+            <li><Link to="/shipping">Livraison et Retours</Link></li>
           </ul>
         </div>
 
         <div className="footer-section">
           <h4>A PROPOS</h4>
           <ul>
-            <li>A propos de nous</li>
-            {/* <li>Jumia careers</li>
-            <li>Jumia Express</li>
-            <li>Terms and Conditions</li>
-            <li>Privacy Notice</li>
-            <li>Jumia Store Credit Terms & Conditions</li>
-            <li>Cookie Notice</li>
-            <li>Jumia Global</li>
-            <li>Official Stores</li>
-            <li>Flash Sales</li> */}
+            <li><Link to="/about">À propos de nous</Link></li>
+            <li><Link to="/partners">Nos partenaires</Link></li>
+            <li><Link to="/privacy-policy">Politique de confidentialité</Link></li>
+            <li><Link to="/terms">Conditions d'utilisation</Link></li>
           </ul>
         </div>
 
-        {/* <div className="footer-section">
-          <h4>MAKE MONEY WITH JUMIA</h4>
+        <div className="footer-section">
+          <h4>DUBON INTERNATIONAL</h4>
           <ul>
-            <li>Sell on Jumia</li>
-            <li>Vendor hub</li>
-            <li>Become a Sales Consultant</li>
-            <li>Become a Logistics Service Partner</li>
-            <li>Join the Jumia DA Academy</li>
-            <li>Join the Jumia KOL Program</li>
+            <li><Link to="/benin">Bénin</Link></li>
+            <li><Link to="/senegal">Sénégal</Link></li>
+            <li><Link to="/cote-d-ivoire">Côte d'Ivoire</Link></li>
+            <li><Link to="/togo">Togo</Link></li>
           </ul>
-        </div> */}
+        </div>
 
         <div className="footer-section">
-          <h4>DUBON  INTERNATIONAL</h4>
-          <ul>            
-            {/* <li>Algeria</li>
-            <li>Morocco</li>
-            <li>Egypt</li>
-            <li>Senegal</li>
-            <li>Ghana</li>
-            <li>Tunisia</li>
-            <li>Ivory Coast</li>
-            <li>Uganda</li>
-            <li>Kenya</li>
-            <li>Zando</li> */}
-          </ul>
+          <h4>INSCRIVEZ-VOUS À NOTRE NEWSLETTER</h4>
+          <div className="newsletter">
+            <input  type="email" placeholder="Votre adresse e-mail" />
+            <button onClick={handleNewsletterSignup}>S'inscrire</button>
+          </div>
         </div>
       </div>
 
       <div className="footer-bottom">
         <div className="footer-socials">
-          <h5>REJOIGNEZ NOUS</h5>
+          <h5>REJOIGNEZ-NOUS</h5>
           <div className="social-icons">
-            <i className="fab fa-facebook"></i>
-            <i className="fab fa-instagram"></i>
-            <i className="fab fa-youtube"></i>
-            <i className="fab fa-twitter"></i>
-            <i className='fab fa-whatsapp'></i>
-            <i className='fab fa-tiktok'></i>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-tiktok"></i>
+            </a>
           </div>
         </div>
 
         <div className="footer-payment">
-          <h5>METHODES DE PAYEMENT & PARTENAIRES DE  LIVRAISON</h5>
+          <h5>MÉTHODES DE PAIEMENT & PARTENAIRES DE LIVRAISON</h5>
           <div className="payment-icons">
-            {/* <i className="fab fa-cc-mastercard"></i> */}
             <i className="fab fa-cc-visa"></i>
             <i className="fab fa-cc-paypal"></i>
-            <i className="fab fa-flooz"></i>
-            {/* <i className="fab fa-cc-discover"></i> */}
+            <i className="fab fa-cc-mastercard"></i>
+            <i className="fab fa-cc-amazon-pay"></i>
           </div>
         </div>
+      </div>
+
+      <div className="footer-legal">
+        <p>© 2024 DUBON Service. Tous droits réservés.</p>
       </div>
     </footer>
   );

@@ -4,12 +4,12 @@ import axios from 'axios';
 import Footer from '../components/Footer';
 import TopBar from '../components/topbar/TopBar';
 import BeforeFooter from '../components/BeforeFooter';
-import { FaFacebookF, FaWhatsapp, FaTwitter } from 'react-icons/fa'; 
+import { FaFacebookF, FaWhatsapp } from 'react-icons/fa'; 
 import ProductRating from '../components/ProductRating';
 import logo from '../assets/favicon.png';
 import { API_URL } from '../config';
 import './productPage.css'
-import profileIcon from '../assets/images/user-profile-svgrepo-com (1).svg'
+// import profileIcon from '../assets/images/user-profile-svgrepo-com (1).svg'
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -94,7 +94,7 @@ const ProductDetails = () => {
           <h1>{product.title}</h1>
           <p className="description">{product.description}</p>
           
-          {/* <ProductRating productId={product._id} /> */}
+          <ProductRating productId={product._id} />
 
           <div className="price-info">
             {product.discount > 0 ? (
@@ -148,7 +148,7 @@ const ProductDetails = () => {
         <h2>Avis des utilisateurs</h2>
         {/* Exemple d'avis utilisateur */}
         <div className="user-review">
-          <img src={profileIcon} alt="User profile" className="user-avatar" />
+          <ProductRating productId={product._id}/>
           <p>Super produit, je recommande vivement !</p>
         </div>
       </div>

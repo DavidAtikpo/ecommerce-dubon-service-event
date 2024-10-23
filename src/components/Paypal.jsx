@@ -1,56 +1,58 @@
-import React, { useState } from 'react';
-import './PaymentPage.css'
+// PaypalPayment.js
+import React, { useState, useEffect } from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import { useNavigate } from 'react-router-dom';
 
 const PaypalPayment = () => {
-  const [success, setSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [orderID, setOrderID] = useState('');
+  const [totalAmount, setTotalAmount] = useState('0.00');
+  const navigate = useNavigate();
 
-  const handleCreateOrder = (data, actions) => {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: '1.00', // Remplacez par le montant total
-          },
-        },
-      ],
-    }).then((orderID) => {
-      setOrderID(orderID);
-      return orderID;
-    });
-  };
+  useEffect(() => {
+    const storedAmount = localStorage.getItem('cartTotal');
+    if (storedAmount) {
+      setTotalAmount(parseFloat(storedAmount).toFixed(2));
+    }
+  }, []);
 
   const handleApprove = (data, actions) => {
-    return actions.order.capture().then((details) => {
-      const name = details.payer.name.given_name;
-      setSuccess(true);
-      alert(`Transaction réussie! Merci ${name}.`);
+    return actions.order.capture().then(details => {
+      alert(`Transaction successful! Thank you, ${details.payer.name.given_name}`);
+      localStorage.clear(); // Clear cart after successful payment
+      navigate('/order-success'); // Redirect to success page
     });
   };
 
   const handleError = (err) => {
-    setErrorMessage('Une erreur est survenue lors du paiement.');
-    console.error('Erreur PayPal: ', err);
+    console.error('PayPal Error:', err);
+    alert('An error occurred during payment.');
   };
-
+  const exchangeRate = 0.0016; //conversion the xof to usd
+  const totalInUSD = (parseFloat(totalAmount) * exchangeRate).toFixed(2);
   return (
-    <PayPalScriptProvider options={{ 'client-id': 'Adj-z8lh_HNqwBAwhlwOX-w0LIbZmqAYNYX7ATE_OEPUIa8R5eb9hVVOY5xdSmKzudtVrQHwKN32g15z' }}>
+    <PayPalScriptProvider
+      options={{
+        'client-id': 'Adj-z8lh_HNqwBAwhlwOX-w0LIbZmqAYNYX7ATE_OEPUIa8R5eb9hVVOY5xdSmKzudtVrQHwKN32g15z',
+        currency: 'USD',
+      }}
+    >
       <div>
-        {success ? (
-          <h2>Paiement réussi ! Commande ID : {orderID}</h2>
-        ) : (
-          <div>
-            <h2>Procéder au paiement</h2>
-            <PayPalButtons
-              createOrder={handleCreateOrder}
-              onApprove={handleApprove}
-              onError={handleError}
-            />
-          </div>
-        )}
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        <h2>Passez au payement</h2>
+        <PayPalButtons
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: totalInUSD,
+                    currency_code: 'USD',
+                  },
+                },
+              ],
+            });
+          }}
+          onApprove={handleApprove}
+          onError={handleError}
+        />
       </div>
     </PayPalScriptProvider>
   );

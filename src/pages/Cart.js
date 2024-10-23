@@ -4,14 +4,14 @@ import Cookies from 'js-cookie';
 import TopBar from '../components/topbar/TopBar';
 import BeforeFooter from '../components/BeforeFooter';
 import '../styles/pages/Carte.css';
-import axios from 'axios';
+// import axios from 'axios';
 import Footer from '../components/Footer';
 import LoginPage from '../pages/auth/LoginPage';
 import { calculateFinalPrice, calculateTotal } from '../utils/cartUtils';
 import { decreaseQuantity, increaseQuantity, removeFromCart } from '../utils/cartActions';
 import { handleProductClick } from '../utils/productUtils';
-import CaptchaComponent from './auth/CaptchaComponent';
-import { API_URL } from '../config';
+// import CaptchaComponent from './auth/CaptchaComponent';
+// import { API_URL } from '../config';
 import Modal from 'react-modal'; // Import du Modal depuis la bibliothèque React Modal
 
 const Cart = () => {
@@ -21,9 +21,11 @@ const Cart = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false);
-  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
+  const [
+    // isVerificationModalOpen,
+     setIsVerificationModalOpen] = useState(false);
   const navigate = useNavigate();
-  const [captchaValue] = useState(null);
+  // const [captchaValue] = useState(null);
 
 // fonction pour trouver les produit dans le panier
   useEffect(() => {
@@ -67,30 +69,30 @@ const Cart = () => {
   //   setCaptchaValue(value);
   // };
 
-  const handleVerificationSuccess = async () => {
-    if (captchaValue) {
-      try {
-        const response = await axios.post( `${API_URL }/api/user/verify-recaptcha`, {
-          token: captchaValue, // Envoyer le token du CAPTCHA au backend
-        });
-        console.log("Sending token:", captchaValue);
-        if (response.data.success) {
-          // Le CAPTCHA a été validé côté serveur
-          setIsVerificationModalOpen(false);
-          navigate('/shipping-address'); // Rediriger après la validation
-        } else {
-          alert('Échec de la validation CAPTCHA.');
-        }
-      } catch (error) {
-        console.error('Erreur lors de la vérification du CAPTCHA:', error);
-        alert('Erreur lors de la vérification CAPTCHA.');
-      }
-    }
-  };
+  // const handleVerificationSuccess = async () => {
+  //   if (captchaValue) {
+  //     try {
+  //       const response = await axios.post( `${API_URL }/api/user/verify-recaptcha`, {
+  //         token: captchaValue, // Envoyer le token du CAPTCHA au backend
+  //       });
+  //       console.log("Sending token:", captchaValue);
+  //       if (response.data.success) {
+  //         // Le CAPTCHA a été validé côté serveur
+  //         setIsVerificationModalOpen(false);
+  //         navigate('/shipping-address'); // Rediriger après la validation
+  //       } else {
+  //         alert('Échec de la validation CAPTCHA.');
+  //       }
+  //     } catch (error) {
+  //       console.error('Erreur lors de la vérification du CAPTCHA:', error);
+  //       alert('Erreur lors de la vérification CAPTCHA.');
+  //     }
+  //   }
+  // };
 
 //fonction pour le shipping address
 const handleCheckout = () => {
-  if (isAuthenticated) {
+  if (!isAuthenticated) {
     navigate('/shipping-address');
   } else {
     setIsVerificationModalOpen(true); // Ouvre le modal de vérification
@@ -223,7 +225,7 @@ const handleCheckout = () => {
   <button className="modal-button secondary" onClick={handleViewDetailsFromModal}>Voir les détails</button>
 </Modal>
 
-<Modal
+{/* <Modal
         isOpen={isVerificationModalOpen}
         onRequestClose={() => setIsVerificationModalOpen(false)}
         contentLabel="Vérification"
@@ -232,7 +234,7 @@ const handleCheckout = () => {
         <h3 className="modal-verification-header">Vérification de l'utilisateur</h3>
         <p>Veuillez confirmer que vous n'êtes pas un robot.</p>
         <CaptchaComponent onVerificationSuccess={handleVerificationSuccess} />
-      </Modal>
+      </Modal> */}
 
 
       {/* Modal de connexion */}

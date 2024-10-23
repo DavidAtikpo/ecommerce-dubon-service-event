@@ -22,7 +22,7 @@ import MessagePage from './components/MessageComponent/MessagePage';
 import OrderSummaryPage from './pages/orders/ResumeCommande';
 import MonCompte from './pages/user/MonComptePage'
 import EmailUpdateComponent from './components/MonCompte/EmailUpdateComponent';
-import PayPalButton from './components/Paypal';
+
 import PasswordUpdateComponent from './components/MonCompte/PasseWord';
 import PhoneUpdateComponent from './components/MonCompte/PhoneVerificationComponent';
 import LanguageSelector from './components/topbar/LanguageSelector';
@@ -40,7 +40,8 @@ import MesProduits from './pages/vendeurs/MesProduits';
 import MesCommandes from './pages/vendeurs/Mescommandes';
 import Checkout from './components/topbar/checkout';
 import ProfilePhotoComponent from './components/MonCompte/ProfilePhotoComponent';
-
+import PaymentOptions from './pages/orders/PaymentOptions';
+import FedaPayPayment from './components/FeddapayPage';
 
 function App() {
   return (
@@ -66,7 +67,7 @@ function App() {
         <Route path='/evenement' element ={<EventManagement/>}/>
         <Route path='/formation' element ={<TrainingManagement/>}/>
         <Route path='/livreur' element ={<LivreurManagement/>}/>
-
+        
         <Route path='/add-produits' element ={<AddProductPage/>}/>
         <Route path='/commande' element ={<OrderManagement/>}/>
         {/* <Route path='/restaurant' element ={<RestaurantManagement/>}/> */}
@@ -86,7 +87,7 @@ function App() {
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path='/verification-code' element={<VerifyCodePage />} />
           <Route path='/shipping-address' element={<ShippingAddressPage/>}/>
-          <Route path='/payment' element={<PaymentPage/>}/>
+          
           <Route path='/user-status' element={<CheckingStatus/>}/>
           <Route path='/rating-popup' element={<RatingPopup/>}/>
           <Route path='/dubon-ser-pro-ma/:productId' element={<ProductDetails/>}/>
@@ -95,9 +96,14 @@ function App() {
           <Route path='/summary' element={<OrderSummaryPage/>}/>
           <Route path='/moncompte' element={<MonCompte/>}/>
           <Route path='/email' element={<EmailUpdateComponent/>}/>
-          <Route path='/paypal' element={<PayPalButton/>}/>
+          
           <Route path='/phone' element={<PhoneUpdateComponent/>}/>
           <Route path='/password' element={<PasswordUpdateComponent/>}/>
+
+              {/* Route de methode de payement  */}
+          <Route path='option-payement' element ={<PaymentOptions/>}/>
+          <Route path='/paypal-payment' element={<PaymentPage/>}/>
+           <Route path='/fedapay-payment' element ={<FedaPayPayment/>}/>
         </Routes>
         </ErrorBoundary>
       </div>

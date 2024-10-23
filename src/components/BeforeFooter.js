@@ -9,7 +9,7 @@ const BeforeFooter = () => {
         {/* Section téléchargement d'application */}
         <div className="download-app">
           <h3>Accédez à nos offres exclusives !</h3>
-          <p>Téléchargez l'application DUBON Service dès maintenant.</p>
+          <p>Téléchargez l'application DUBON Service .</p>
           <div className="app-links">
             <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
             Télécharger sur App Store
